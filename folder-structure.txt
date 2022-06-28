@@ -1,8 +1,11 @@
 jcoet-app
     -jcoetenv/(virtual environment)
-        -manage.py
+        
 
-    -jcoetapp/
-    -workspace-file(vs code)
-    -requirements.txt
-    -readme
+    -jcoet-app/
+        -jcoet/
+      
+        -requirements.txt
+        -readme
+  
+    workspace-file
