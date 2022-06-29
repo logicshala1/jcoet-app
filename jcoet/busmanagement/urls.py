@@ -3,5 +3,5 @@ from django.urls import path
 from .views import *
 
 urlpatterns = [
-    path('<path-to-function>/',function-name, name="<url-name>"),
+    path('busform/',displayBusForm, name="bus-form"),
 ]
