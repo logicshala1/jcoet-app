@@ -1,0 +1,140 @@
+<!--
+Author - Aniket Dawane
+Date Created- 2022-06-30
+
+-->
+
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Registartion Page </title>
+<meta name="viewport" content="width=500, initial-scale=500">
+<link rel="stylesheet" href="{% static 'bootstrap.min.css' %}">
+<style>
+body {
+  font-family: Times new roman;
+  background-color: Black;
+}
+div.centered {
+  width: 5000px;
+  height: 4000px;
+  top: 50%;
+  left: 50%;
+  position: absolute;
+  margin-top: -2000px;
+  margin-left: -2500px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* Add padding to containers */
+.container{
+  padding: 16px;
+  background-color: #5F9EA0 ;
+
+}
+body{
+   background-color: #5F9EA0 ;
+}
+/* Full-width input fields */
+input[type=text], input[type=password] {
+  width: 100%;
+  padding: 5px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+  border: none;
+  background: #f1f1f1;
+}
+
+input[type=text]:focus, input[type=password]:focus {
+  background-color: #f1f1;
+  outline: none;
+}
+
+/* Overwrite default styles of hr */
+hr {
+  border: 1px solid #f1f1f1;
+  margin-bottom: 25px;
+}
+
+/* Set a style for the submit button */
+.registerbtn {
+  background-color: #000066;
+  color: white;
+  padding: 12px 18px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  opacity: 0.9;
+  font-family: Times new roman;
+}
+
+.registerbtn:hover {
+  opacity: 1;
+}
+
+/* Add a blue text color to links */
+a {
+  color: dodgerblue;
+}
+
+/* Set a grey background color and center the text of the "sign in" section */
+.signin {
+  background-color: #f1f1f1;
+  text-align: center;
+}
+.form{
+  background-color: #66CDAA;
+  border-radius: 20px;
+   box-shadow: 2px 2px 2px 2px white;
+}
+</style>
+</head>
+<body>
+<div class="container">
+  <div class="row">
+      <div class="col-md-3"></div>
+      <div class="col-md-6 form">
+      <form action="/action_page.php">
+        <div class="container1">
+        
+          <h1>Login</h1>
+          
+          <hr>
+          <label for="name"><b>Name</b></label>
+          <input type="text" placeholder="Enter Name" name="name" id="name" required>
+
+          <label for="email"><b>Email</b></label>
+          <input type="text" placeholder="Enter Email" name="email" id="email" required>
+          
+          <label for="Prn"><b>PRN No</b></label>
+          <input type="text" placeholder="Enter PRN" name="prn" id="prn" required>
+
+
+          <label for="psw"><b>Password</b></label>
+          <input type="password" placeholder="Enter Password" name="psw" id="psw" required>
+
+          <label for="psw-repeat"><b>Conform Password</b></label>
+          <input type="password" placeholder="Conform Password" name="psw-repeat" id="psw-repeat" required>
+          <hr>
+         
+
+          <button type="submit" class="registerbtn">Login</button>
+        </div>
+        
+        <div class="container signin">
+          <p>Don't have an account? <a href="#">Register</a>.</p>
+        </div>
+        <br>
+      </form>
+    </div>
+    </div>
+</div>
+
+<script src="{% static 'bootstrap.bundle.min.js' %}"></script>
+</body>
+</html>
