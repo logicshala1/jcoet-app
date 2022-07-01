@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>**FOOD ORDER PAGE**</title>
+        <link rel="stylesheet"
+        type="text/css"
+        href="formCssFile.css" </head>
+    <body >  
+        <div> 
+        <h2>==========Order Page==========</h2>
+
+        <table width="40%" id="alignment" > 
+        <tr>  
+        <th>Food Item</th> 
+        <th> </th>
+        <th>Price(Rs)</th>
+        </tr> 
+        <tr>
+        <td>Samosa</td> 
+        <td> - </td>
+        <td>20.00</td> 
+        </tr> 
+        <tr>
+        <td>Bread Pakoda</td>
+        <td> - </td> 
+        <td>25.00</td> 
+        </tr>
+        <tr> 
+        <td>Poha</td>
+        <td> - </td>  
+        <td>15.00</td>
+        </tr> 
+        <tr>  
+        <td>Idli Sambar</td>
+        <td> - </td> 
+        <td>30</td> 
+        </tr>  
+        <tr>
+        <td>Water Bottle</td>
+        <td> - </td> 
+        <td>20.00</td>
+        </tr>
+        </table>
+
+        <h>JCOET Food - Order Form</h1>
+            <table style="background-color:rebeccapurple;margin-left: 100px;">  <tr>
+            <td> Form : </td>
+            </tr>
+            <tr>
+            <td>Student name:</td>
+            <td>
+            <input type="text" >
+            </td>
+            </tr>
+            <tr><td>Token No: </td>
+            <td><input type="text" id="Tokenno" onfocusout="checktoken()"></td></tr> 
+            </table>
+            <br>
+
+
+            <form name="tblform" >
+                <table width="80%"  id="alignment" >
+                <tr>
+                <th>Food Item</th>
+                <th> </th>
+                <th>Quantity</th>
+                <th>Price</th> 
+                </tr>
+                <tr> 
+                <td>Item 1:</td> 
+                <td>
+                <select id="item1">
+                <option value="1">--Select Item--</option> 
+                <option value="Samosa">Samosa</option> 
+                <option value="Bread Pakoda">Bread Pakoda</option> 
+                <option value="Poha">Poha</option> 
+                <option value="Idli Sambar">Idli Sambar</option> 
+                <option value="Water Bottle ">Water Bottle </option> 
+                </select>
+                </td> 
+                <td><input type="number" value="0" id="q1"></td>
+                <td><input type="text" id="p1"></td>
+                </tr>   
+                <tr>
+                <td>Item 2:</td>
+                <td>
+                <select id="item2"> 
+                <option value="1">--Select Item--</option> 
+                <option value="Samosa">Samosa</option> 
+                <option value="Bread Pakoda">Bread Pakoda</option> 
+                <option value="Poha">Poha</option> 
+                <option value="Idli Sambar">Idli Sambar</option>
+                <option value="Water Bottle ">Water Bottle </option>  
+                </select>
+                </td>
+                <td><input  type="number" value="0" id="q2"></td>  
+                <td><input type="text"  id="p2"></td>  
+                </tr> 
+                <tr>
+                <td>Item 3:</td>
+                <td><select id="item3">  
+                <option value="1">--Select Item--</option> 
+                <option value="Samosa">Samosa</option> 
+                <option value="Bread Pakoda">Bread Pakoda</option> 
+                <option value="Poha">Poha</option> 
+                <option value="Idli Sambar">Idli Sambar</option>
+                <option value="Water Bottle ">Water Bottle </option> 
+                </select>
+                </td>
+                <td><input type="number" value="0" id="q3"></td>
+                <td><input type="text"  id="p3"></td> 
+                </tr> 
+                <tr>
+                <td>Item 4:</td>
+                <td><select id="item4">   
+                <option value="1">--Select Item--</option> 
+                <option value="Samosa">Samosa</option> 
+                <option value="Bread Pakoda">Bread Pakoda</option> 
+                <option value="Poha">Poha</option> 
+                <option value="Idli Sambar">Idli Sambar</option>
+                <option value="Water Bottle ">Water Bottle </option>   
+                </select>
+                </td>
+                <td><input type="number" value="0" id="q4"></td>
+                <td><input type="text"  id="p4"></td> 
+                </tr>    
+                <tr>
+                <td></td> 
+                <td></td> 
+                <td><input type="submit" class="button" value="Create Bill" onclick=createBill()></td>
+                <td><input type="reset" class="button" value="Clear"></td>
+                <td><input type="submit" class="button" value="Add Meals" onclick=AddMeals()></td>
+                </tr>
+                </table>
+                </form>
+
+
+
+</html>
