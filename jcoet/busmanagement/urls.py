@@ -4,4 +4,5 @@ from .views import *
 
 urlpatterns = [
     path('busform/',displayBusForm, name="bus-form"),
+    path('studentform/',studentForm, name="student-form"),
 ]

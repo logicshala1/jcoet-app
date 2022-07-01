@@ -49,16 +49,16 @@
     <div class="row g-5">
       <div class="col-md-5 col-lg-4 order-md-last">
         <h4 class="d-flex justify-content-between align-items-center mb-3">
-          <span class="text-primary">BUS Details</span>
+          <span class="text-primary">Student Details</span>
         </h4>
         <ul class="list-group mb-3">
-          {% for detail in details %}
+          {% for detail in students %}
             <li class="list-group-item d-flex justify-content-between lh-sm">
               <div>
-                <h6 class="my-0">Number plate: {{detail.vehicle_number}}</h6>
-                <small class="text-muted">Students: {{detail.number_of_students}}</small>
+                <h6 class="my-0">Name: {{detail.name}}</h6>
+                <small class="text-muted">Branch: {{detail.branch}}</small>
               </div>
-              <span class="text-muted">Stops: {{detail.number_of_stops}}</span>
+              <span class="text-muted">Bus number plate: {{detail.bus.vehicle_number}}</span>
             </li>
           {% endfor %}
         </ul>
@@ -70,38 +70,51 @@
           {% csrf_token %}
           <div class="row g-3">
             <div class="col-sm-6">
-              <label for="firstName" class="form-label">Bus Number</label>
-              <input name="vehicle_number" type="text" class="form-control" id="firstName" placeholder="" value="" required>
-              <div class="invalid-feedback">
-                Valid first name is required.
-              </div>
+              <label for="firstName" class="form-label">Name</label>
+              <input name="name" type="text" class="form-control" id="firstName" placeholder="" value="" required>
             </div>
 
             <div class="col-sm-6">
-              <label for="lastName" class="form-label">Number of Stops</label>
-              <input name="number_of_stops" type="text" class="form-control" id="lastName" placeholder="" value="" required>
-              <div class="invalid-feedback">
-                Valid last name is required.
-              </div>
+              <label for="lastName" class="form-label">Year</label>
+              <input name="year" type="text" class="form-control" id="lastName" placeholder="" value="" required>
+            </div>            
+          </div>
+
+          <hr class="my-4">
+          <div class="row g-3">
+            <div class="col-sm-6">
+              <label for="firstName" class="form-label">Email</label>
+              <input name="email" type="text" class="form-control" id="firstName" placeholder="" value="" required>
+              
             </div>
 
-            <div class="col-12">
-              <label for="username" class="form-label">Number of Students</label>
-              <div class="input-group has-validation">
-                <span class="input-group-text">@</span>
-                <input name="number_of_students" type="text" class="form-control" id="username" placeholder="Username" required>
-                <div class="invalid-feedback">
-                  Your username is required.
-                </div>
-              </div>
-            </div>
-
-            
+            <div class="col-sm-6">
+              <label for="lastName" class="form-label">Mobile</label>
+              <input name="mobile" type="text" class="form-control" id="lastName" placeholder="" value="" required>
+              
+            </div>            
           </div>
 
           <hr class="my-4">
 
-          
+          <div class="row g-3">
+            <div class="col-sm-6">
+              <label for="firstName" class="form-label">branch</label>
+              <input name="branch" type="text" class="form-control" id="firstName" placeholder="" value="" required>
+            </div>
+
+            <div class="col-sm-6">
+              <label for="lastName" class="form-label">Bus</label>
+                <select name="bus" class="form-select" id="">
+                    <option selected disabled > --select-- </option>
+                    {% for detail in details %}
+                        <option value="{{detail.id}}">{{detail.vehicle_number}}</option>
+                    {% endfor %}
+                </select>
+            </div>            
+          </div>
+
+          <hr class="my-4">
 
           <button class="w-100 btn btn-primary btn-lg" type="submit">Submit</button>
         </form>
