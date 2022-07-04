@@ -1,0 +1,100 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Order Page</title>
+	<link rel="stylesheet" type="text/css" href="{% static 'orderpage.css' %}">
+
+</head>
+
+<body >  
+        <div> 
+        <center><h1>ORDER PAGE</h1><center>
+            <form action="" method="get" class="form-example">
+                <div class="cateen-form">
+                  <label for="name">Enter Your Name: </label>
+                  <input type="text" name="name" id="name" placeholder="Enter Your name.."required>
+                </div>
+                <br>
+                <div class="canteen-form">
+                  <label for="Token">Enter Token Number: </label>
+                  <input type="password" name="Token" id="Token" placeholder="Enter Token Number"required>
+                </div>
+            </form>    
+            </table>
+            <br>
+
+
+            <form name="tblform" >
+                <table width="80%"  id="alignment" >
+                <tr>
+					<label for="Orderpage">Select Item</label>
+					<input list="Orderpage" id="Orderpage" name="Orderpage" />
+					
+					<datalist id="Orderpage">
+						<option value="Samosa">
+						<option value="Bread Pakoda">
+						<option value="Poha">
+						<option value="idli Sambhar">
+						<option value="Water Bottle">
+					</datalist>
+                <td><input type="number" value="0" id="q1"></td>
+                <td><input type="text" id="p1"></td>
+                </tr>   
+                <tr>
+                <td>Item 2:</td>
+                <td>
+                <select id="item2"> 
+                <option value="1">--Select Item--</option> 
+                <option value="Samosa">Samosa</option> 
+                <option value="Bread Pakoda">Bread Pakoda</option> 
+                <option value="Poha">Poha</option> 
+                <option value="Idli Sambar">Idli Sambar</option>
+                <option value="Water Bottle ">Water Bottle </option>  
+                </select>
+                </td>
+                <td><input  type="number" value="0" id="q2"></td>  
+                <td><input type="text"  id="p2"></td>  
+                </tr> 
+                <tr>
+                <td>Item 3:</td>
+                <td><select id="item3">  
+                <option value="1">--Select Item--</option> 
+                <option value="Samosa">Samosa</option> 
+                <option value="Bread Pakoda">Bread Pakoda</option> 
+                <option value="Poha">Poha</option> 
+                <option value="Idli Sambar">Idli Sambar</option>
+                <option value="Water Bottle ">Water Bottle </option> 
+                </select>
+                </td>
+                <td><input type="number" value="0" id="q3"></td>
+                <td><input type="text"  id="p3"></td> 
+                </tr> 
+                <tr>
+                <td>Item 4:</td>
+                <td><select id="item4">   
+                <option value="1">--Select Item--</option> 
+                <option value="Samosa">Samosa</option> 
+                <option value="Bread Pakoda">Bread Pakoda</option> 
+                <option value="Poha">Poha</option> 
+                <option value="Idli Sambar">Idli Sambar</option>
+                <option value="Water Bottle ">Water Bottle </option>   
+                </select>
+                </td>
+                <td><input type="number" value="0" id="q4"></td>
+                <td><input type="text"  id="p4"></td> 
+                </tr>    
+                <tr>
+                <td></td> 
+                <td></td> 
+                <td><input type="submit" class="button" value="Create Bill" onclick=createBill()></td>
+                <td><input type="reset" class="button" value="Clear"></td>
+                <td><input type="submit" class="button" value="Add Meals" onclick=AddMeals()></td>
+                </tr>
+                </table>
+                </form>
+		</div>
+</body>
+</html>

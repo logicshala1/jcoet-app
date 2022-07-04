@@ -20,4 +20,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('',include('home.urls')),
     path('bus/',include('busmanagement.urls')),
+    path('polling/',include('pollingbooth.urls')),
+    path('canteen/',include('canteentokensystem.urls')),
 ]
