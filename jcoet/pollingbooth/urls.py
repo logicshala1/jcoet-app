@@ -3,7 +3,16 @@ from django.urls import path
 from .views import *
 
 urlpatterns = [
-    path('loginform/',displayLoginForm, name="login-form"),
-    path('registerform/',displayRegisterForm, name="register-form"),
-    path('voteridregisterform/',VoterIdForm, name="voter-id-form"),
+    path('collegeform/',displayCollegeForm, name="college-form"),
+    path('collegeyear/',displayYear, name="college-year"),
+    path('collegebranch/',displayBranch, name="college-branch"),
+    path('registerform/',displayStudentForm, name="register-form"),
+    path('loginform/',studentLoginForm, name="login-form"),
+    path('forgotpassword/',forgotPasswordForm, name="forgot-password"),
+    path('homepage/',displayHomePage, name="home-page"),
+    path('dashboard/',displayDashboardPage, name="dash-board"),
+    path('nominee/',displayNominee, name="nominee"),
+    path('adminsignup/',adminSignupPage, name="admin-signup"),
+    
+    
 ]
