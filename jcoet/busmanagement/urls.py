@@ -1,0 +1,8 @@
+from django.urls import path
+# import functions from the views files
+from .views import *
+
+urlpatterns = [
+    path('busform/',displayBusForm, name="bus-form"),
+    path('studentform/',studentForm, name="student-form"),
+]

@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body {font-family: Arial, Helvetica, sans-serif;}
+
+/* Full-width input fields */
+input[type=text], input[type=password] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+/* Set a style for all buttons */
+button {
+  background-color: #04AA6D;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+}
+
+button:hover {
+  opacity: 0.8;
+}
+
+/* Extra styles for the cancel button */
+.cancelbtn {
+  width: auto;
+  padding: 10px 18px;
+  background-color: #f44336;
+}
+
+/* Center the image and position the close button */
+.imgcontainer {
+  text-align: center;
+  margin: 15px 0 8px 0;
+  position: relative;
+}
+
+img.avatar {
+  width: 20%;
+  border-radius: 30%;
+}
+
+.container {
+  padding: 10px;
+}
+
+span.psw {
+  float: right;
+  padding-top: 10px;
+}
+
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  padding-top: 60px;
+}
+
+/* Modal Content/Box */
+.modal-content {
+  background-color: #fefefe;
+  margin: 5% auto 10% auto; /* 5% from the top, 15% from the bottom and centered */
+  border: 1px solid #888;
+  width: 50%; /* Could be more or less, depending on screen size */
+}
+
+/* The Close Button (x) */
+.close {
+  position: absolute;
+  right: 25px;
+  top: 0;
+  color: #000;
+  font-size: 35px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: red;
+  cursor: pointer;
+}
+
+/* Add Zoom Animation */
+.animate {
+  -webkit-animation: animatezoom 0.6s;
+  animation: animatezoom 0.6s
+}
+
+@-webkit-keyframes animatezoom {
+  from {-webkit-transform: scale(0)} 
+  to {-webkit-transform: scale(1)}
+}
+  
+@keyframes animatezoom {
+  from {transform: scale(0)} 
+  to {transform: scale(1)}
+}
+
+/* Change styles for span and cancel button on extra small screens */
+@media screen and (max-width: 300px) {
+  span.psw {
+     display: block;
+     float: none;
+  }
+  .cancelbtn {
+     width: 100%;
+  }
+}
+</style>
+<title>User-Login</title>
+</head>
+<body>
+
+
+    <div class="imgcontainer">
+      <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+      <img src="data:image/png;base64,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" alt="Avatar" class="avatar">
+    </div>
+
+    <div class="container">
+      <label for="uname"><b>Username</b></label>
+      <input type="text" placeholder="Enter Username" name="uname" required>
+
+      <label for="psw"><b>Password</b></label>
+      <input type="password" placeholder="Enter Password" name="psw" required>
+        
+      <button type="submit">Login</button>
+      <label>
+        <input type="checkbox" checked="checked" name="remember"> Remember me
+      </label>
+    </div>
+
+    <div class="container" style="background-color:#f1f1f1">
+      <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn"><a href="#">New User</a></button>
+      <span class="psw">Forgot <a href="#">password?</a></span>
+    </div>
+  </form>
+</div>
+
+<script>
+// Get the modal
+var modal = document.getElementById('id01');
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
+</script>
+
+</body>
+</html>

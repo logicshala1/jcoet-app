@@ -1,0 +1,89 @@
+{
+	padding: 0px;
+	margin: 0px;
+	font-family: serif;
+}
+body{
+	background: url( ./order.jpg ) no-repeat;
+	background-size:cover ;
+	background-position: center;
+	background-attachment: fixed;
+	
+
+
+}
+.login-form{
+	width: 350px;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	position: absolute;
+	color: #fff;
+	
+}
+
+.login-form h1 {
+	font-size: 40px;
+	text-align: center;
+	text-transform: uppercase;
+	margin: 40px 0;
+}
+
+.login-form p {
+	font-size: 20px;
+	margin: 15px 0;
+}
+
+.login-form input {
+	font-size: 16px;
+	width: 100%;
+	padding:15px 10px ;
+	border: 0;
+	outline: none;
+	border-radius: 5px;
+}
+
+.login-form button {
+	font-size: 18px;
+	font-weight: bold;
+	margin: 20px 0;
+	padding: 10px 15px;
+	width: 50%; 
+	border-radius:5px;
+	border: 0px;
+
+
+}
+th{
+    text-align:Middle;
+    
+
+}
+
+body{
+font-size: 20pt;
+
+}
+
+.button {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+  }
+
+  div {
+    text-align: center;
+    border-style: solid;
+    margin-left: 300px;
+    width:60%
+}
+#alignment{
+    margin-left: auto;
+    margin-right: auto;
+
+}
