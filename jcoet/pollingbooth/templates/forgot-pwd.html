@@ -111,6 +111,11 @@
       border-radius: 20px;
       box-shadow: 2px 2px 2px 2px white;
     }
+
+    .registerbtn:hover {
+      background-color: #2b2b8a;
+      opacity: 1;
+    }
   </style>
 </head>
 
@@ -137,13 +142,20 @@
             <input type="password" placeholder="ReEnter Password" name="conform_password" id="psw-repeat" required>
 
             <hr>
-            <button type="submit" class="registerbtn"><a href="http://127.0.0.1:8000/pollingbooth/loginform/">Submit</a></button>
+            <input type="button" class="btn btn-info registerbtn" value="Submit" onclick=" relocate_home()">
+
           </div>
           <br>
         </form>
       </div>
     </div>
   </div>
+  <script>
+    function relocate_home()
+    {
+         location.href = "http://127.0.0.1:8000/polling/loginform/";
+    } 
+    </script>
 
   <script src="{% static 'bootstrap.bundle.min.js' %}"></script>
 </body>
