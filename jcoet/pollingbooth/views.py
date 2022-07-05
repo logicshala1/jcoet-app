@@ -1,5 +1,7 @@
+from binascii import rledecode_hqx
 from django.shortcuts import render
 from .models import *
+from django.contrib.auth import authenticate, login
 # Create your views here.
 def displayCollegeForm(request):
     if request.method == "POST":
@@ -88,6 +90,33 @@ def displayStudentForm(request):
     return render(request,'register-form.html', context)
  
 def studentLoginForm(request):
+    if request.method =='POST':
+        username = request.POST['email']
+        password = request.POST['passwordd']
+        print(username)
+        print(password)
+        user = authenticate(request,username=username,password=password)
+        if user is not None:
+            login(request,user)
+            print(user.id)
+
+            print("Correct Person")
+            votinguser_details = VotingUsers.objects.filter(user_id=user.id)
+            #data = votinguser_details.values()
+            print(votinguser_details.values_list())
+            #@Kiran, Aniket - Get this from Database
+            
+            if(TypeLogin == "head"):
+                return render(request,'admin-updatevote.html')
+            elif(TypeLogin == "student"):
+                return render(request,'dashboard.html')
+        else:
+            print("Wrong Person")
+            return render(request,'login-form.html')
+
+
+
+
     return render(request,'login-form.html')
 
 def forgotPasswordForm(request):

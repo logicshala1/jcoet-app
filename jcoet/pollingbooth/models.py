@@ -1,6 +1,21 @@
 from django.db import models
-
+from django.contrib.auth.models import User
+from django.utils import timezone
 # Create your models here.
+
+class VotingDetails(models.Model):
+    user = models.OneToOneField(User,on_delete=models.CASCADE)
+    type=models.CharField(max_length=500,blank=True,default='student')
+    userCreated = models.DateTimeField(default=timezone.now)
+    def __str__(self):
+        return f'{self.user.username}'
+
+class VotingUsers(models.Model):
+    user = models.OneToOneField(User,on_delete=models.CASCADE)
+    typeLogin = models.CharField(max_length=400,blank=True,default='student')
+
+    def __str__(self):
+        return self.user.username
 class College(models.Model):
     college_name = models.CharField(max_length=80)
 
