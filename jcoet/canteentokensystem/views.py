@@ -12,3 +12,9 @@ def displayorderForm(request):
         print("Name_Of_Student ",data_dict['Name_Of_Student'])
     
     return render (request,'orderpage.html')    
+
+def ownerPage(request):
+    return render(request,"owner-page.html")
+
+def userLogin(request):
+    return render(request,"user-login.html")
