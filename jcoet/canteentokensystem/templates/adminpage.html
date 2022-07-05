@@ -1,0 +1,128 @@
+<!Doctype html>
+<html>
+<style>
+.btn-group button {
+  background-color: #f40db6; /* Green background */
+  border: 1px solid rgb(156, 15, 216); /* Green border */
+  color: white; /* White text */
+  padding: 10px 24px; /* Some padding */
+  cursor: pointer; /* Pointer/hand icon */
+  float: left; /* Float the buttons side by side */
+}
+h1{  
+    text-align: center;  
+    color: #1797d8;  
+    padding: 20px;  
+}
+h2{
+    color: #0cea26;
+}
+body {
+  background-color: #f4dc74;
+}
+
+  
+
+/* Clear floats (clearfix hack) */
+.btn-group:after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.btn-group button:not(:last-child) {
+  border-right: none; /* Prevent double borders */
+}
+
+/* Add a background color on hover */
+.btn-group button:hover {
+  background-color: #4807eb;
+}
+label{
+    color: rgba(194, 245, 9, 0.671);
+}
+select{
+    color: #ef829d;
+}
+.center {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+.btn-group{
+    background-image: linear-gradient(rgb(136, 165, 237),rgb(6, 38, 39));
+    border-radius: 15px;
+    padding:10px ;
+    padding-top:0px ;
+    padding:10px ;
+    width:100 px;
+    color: rgb(225, 187, 167);
+    text-align: center;
+    cursor: pointer;
+}
+
+
+
+
+</style>
+<body>
+
+    <h1>ADMIN PAGE</h1><br>    
+    <div class="ADMIN PAGE">    
+    <form id="ADMIN PAGE" method="get" action="ADMIN PAGE.python ">
+        <img src="" alt="">  
+
+<div class="btn-group">
+    
+  <button>Manage items </button>
+  <button>Manage User </button>
+  <button>Manage Order </button>
+  <button>Feedback Massege  </button>
+  <br>
+  <br>
+  <h2>Item Name </h2>
+
+<label for="Cooldrinks">Choose Cold Drinks :</label>
+
+<select id="Cold Drinks">
+  <option value="Sprite">Sprite</option>
+  <option value="Mazaa">Mazaa</option>
+  <option value="ThmbsUp">ThumsUp</option>
+  <option value="Fruti">Fruti</option>
+</select>
+<span>----------------</span>
+<label for="Wefers ">Choose Wefers  :</label>
+<select id="Wefers ">
+    <option value="Chips">Chips</option>
+    <option value="kurkure">kurkure</option>
+    <option value="Triangles">Triangles</option>
+    <option value="TedeMede">TedeMede</option>
+  </select>
+  <span>----------------</span>
+  <label for="Breakfast">Choose Breakfast :</label>
+<select id="Breakfast">
+    <option value="samosa">samosa</option>
+    <option value="Kachori">Kachori</option>
+    <option value="AlluWada">AlluWada</option>
+    <option value="Poha">Poha</option>
+  </select>
+</div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<div class="center">
+    <button>PLACE ORDER</button>
+  </div>
+
+
+</body>
+</html>
