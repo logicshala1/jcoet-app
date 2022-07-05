@@ -1,10 +1,10 @@
-{
+*{
 	padding: 0px;
 	margin: 0px;
 	font-family: serif;
 }
 body{
-	background: url( ./order.jpg ) no-repeat;
+	background: url( C:\Users\User\jcoet-app-dev\jcoet\canteentokensystem\static ) no-repeat;
 	background-size:cover ;
 	background-position: center;
 	background-attachment: fixed;
