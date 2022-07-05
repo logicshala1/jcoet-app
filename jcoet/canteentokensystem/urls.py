@@ -4,6 +4,10 @@ from .views import *
 
 urlpatterns = [
     path('orderpage/',displayorderForm, name="orderpage"),
-    path('ownerpage/',ownerPage, name="ownerpage"),
-    path('login/',userLogin, name="user-login"),
+    path("register/",register,name="register"),
+    path("add-new-admin/",adminregister,name="register-admin"),
+    path('login/',userLogin, name="login"),
+    path('menu/',menu, name="menu"),
+    path('add-item/',addItem,name="add-item"),
+    path('canteen-admin/',adminCanteen,name="admin"),
 ]

@@ -26,14 +26,17 @@ Date Created- 2022-06-30
      <h1>Add New Items To The Menu Card  ..</h1>
 
 
-    <form action="/action_page.php">
+    <form method="post" enctype="multipart/form-data">
+      {% csrf_token %}
       <label for="fname">Name Of Item:</label><br>
       <br>
-      <input type="text" ><br>
+      <input type="text" name="item" ><br>
       <br>
       <label for="lname">Price of Item:</label><br>
       <br>
-      <input type="number" ><br><br>
+      <input type="number" name="rate" ><br><br>
+      <label for="image"> Upload image </label>
+      <input type="file" name="image" > <br><br>
       <input type="submit" value="Submit">
     </form> 
   </div>

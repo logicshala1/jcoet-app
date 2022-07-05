@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>login account</title>
+	<style>
+	body{
+		background-color:skyblue;
+	}
+	     #div1{
+	     	float: right;
+	     	border: 1px solid black;
+	     	width: 500px;
+	     	height: 600px;
+	     	margin-right: 480px;
+	     	border-radius: 10% ;
+	     	background-image: linear-gradient(yellow,orange,pink,yellow);
+	     }
+	     input{
+	     	     margin-left: 100px;
+
+	     	     padding: 15px;
+	     	     width: 200px;
+	     	     border-radius: 10px 10px 10px 10px;
+	     	     background-image:linear-gradient(white);
+	     }
+	     h1{
+	     	margin-left: 50px;
+	     }
+	     w1{
+	     	margin-left: 100px;
+	     }
+	  w2{
+	     	margin-left: 200px;
+	     }
+	 w3{
+	     	margin-left: 100px;
+	     }
+
+	   #class{
+	   	margin-left: 120px;
+	   	font-size: 20px;
+	   }
+	   span{
+	   	color: blue;
+	   	font-size: 25px;
+	   }
+</style>
+</head>
+<body>
+      <div id="div1">
+      	<h1> <b>WELCOME TO JAGADAMBHA CAFETERIA:</b></h1>
+      		<w1> Enter Your E-mail Address to sign in </w1><br>
+      		<w1> Enjoy your food:</w1><br>
+      			<br> <br>
+			<form method="post">
+				{% csrf_token %}
+				<input type="text" name="college_id" placeholder="Enter yur E-mail OR College ID"><br>
+				<br><br>
+				<input type="password" name="password" placeholder="Enter your password"><br>
+				<br>
+					 <w2> forget password</w2>
+					 <br><br><br>
+  
+				  <button id="class" type="submit" > sign in</button>
+				  <br><br>
+			</form>
+
+      		  <w3> don't have an account <span><a href="form_created_account.html"> Create Account</a></span><w3>
+                
+
+      </div>
+</body>
+</html>>

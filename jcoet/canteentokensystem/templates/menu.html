@@ -1,0 +1,35 @@
+{% load static %}
+<html>
+<title>nitin</title>
+  
+<h style="color: white;">TODAY'S MENU</h>
+<style>
+table{
+     background-color:rgb(26, 26, 55)
+}
+
+.nitin
+   {
+        background-image: url("co11.jpg");
+        height: 1000px;
+        background-size: 100%;
+        background-repeat: no-repeat;
+    }
+</style>
+</html>
+<body class="nitin">
+<TABLE BORDER=”2″ CELLSPACING=”50″>
+<TR>
+<TD width="200px" height="50px"> <b style="color: white;">ITEM</b></TD>
+<TD width="200px" height="50px"> <b style="color: white;">Our Creation</b></TD>
+<TD width="200px" height="50px"> <b style="color: white;">Today's Rate</b></TD>
+</TR>
+{% for item in items %}
+<TR>
+     <TD width="200px" height="150px"> <b style="color: white;">{{item.name}}</b></TD>
+     <th width="300px" height="150px"><img src="{{ item.image.url }}" width="300px" height="150px"></th>
+     <TD width="100px" height="100px"> <b style="color: white;">{{item.rate}}rs/-</b></TD>
+</TR>
+{% endfor %}
+</TABLE>
+</body>

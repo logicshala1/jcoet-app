@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>created account</title>
+	<style>
+	body
+	{
+		background-color: rgb(183, 183, 197);
+	}
+		#div1{
+			border: 10px solid black;
+			widows: 300px;
+			height: 700px;
+			margin-right: 300px;
+			margin-left: 300px;
+			background-image:linear-gradient(orange,green,purple,black,yellow);
+
+			
+		}
+		input{
+			margin-left: 200px;
+			font-size: 20px;
+			padding: 10px;
+
+		}
+		w1{
+			margin-left: 250px;
+		}
+		#class1{
+			margin-left: 250px;
+			font-size: 30px;
+		}
+		h1{
+			margin-left: 50px;
+		}
+
+	</style>
+</head>
+<body>
+    <div id="div1" align="centre">
+    	<h1> Create New Account:</h1> <br><b>
+		<form method="post">
+			{% csrf_token %}
+			<input type="text" name="username" placeholder="Enter your name "><br><br>
+			<input type="text" name="college_id" placeholder="Enter Your College ID"><br><br>
+			<input type="text" name="mobile" placeholder="Enter mobile number "><br><br>
+			<input type="password" name="password"  placeholder="Password"><br><br>
+			<input type="text" name="email" placeholder="Enter your E-mail  ">
+			<br>
+			<br>
+			<label style="padding: 13rem;color:white " > Date of birth </label>
+			<br>
+			<br>
+			<input type="date" name="dob" placeholder="Date of birth"><br><br>
+			<button id="class1" type="submit" > submit</button>
+		</form>
+
+    </div>
+</body>
+</html>>
