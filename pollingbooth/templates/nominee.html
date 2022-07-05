@@ -1,0 +1,186 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Voting | JCOET</title>
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<style type="text/css">
+		body{
+ background:#EEEEEE;    
+}
+.user-profile-2 {
+    text-align: center;
+    position: relative;
+    margin-top:10px;
+}
+
+.box-info {
+    position: relative;
+    padding: 15px;
+    background: #fff;
+    color: #5b5b5b;
+    margin-bottom: 20px;
+    -webkit-transition: All 0.4s ease;
+    -moz-transition: All 0.4s ease;
+    -o-transition: All 0.4s ease;
+    border-bottom:4px solid #DDDDDD;
+}
+
+.user-profile-2 .header-cover {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    height: 130px;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.user-profile-2 .user-profile-inner {
+    z-index: 2;
+    position: relative;
+}
+
+.user-profile-2 .user-profile-inner h4.white {
+    color: #fff;
+}
+
+.user-profile-2 .user-profile-inner img.profile-avatar {
+    box-shadow: 0 0 0 5px rgba(255,255,255,1);
+    -moz-box-shadow: 0 0 0 5px rgba(255,255,255,1);
+    -webkit-box-shadow: 0 0 0 5px rgba(255,255,255,1);
+    border: none;
+    width:100px;
+    height:100px;
+}
+
+.user-button {
+    margin: 15px 0;
+}
+.title{
+
+	text-align: center;
+	font-weight: bold;
+}
+
+hr.style-1 {
+padding: 0;
+border: none;
+border-top: medium double #333;
+color: hotpink;
+text-align: center;
+}
+hr.style-1:after {
+content: "JCOET YAVATMAL ELECTION 2022";
+display: inline-block;
+position: relative;
+top: -0.7em;
+font-size: 1.4em;
+padding: 0 0.25em;
+background: white;
+}
+
+
+
+
+</style>
+</head>
+<body>
+	<div class="container bootstrap snippets bootdey">
+		<hr class="style-1">
+		<h3 class="title">Who Will Be The GS of JCOET ?</h3>
+    <div class="col-sm-4">
+      <!-- Begin user profile -->
+      <div class="box-info text-center user-profile-2">
+        <div class="header-cover">
+          <img src="{% static 'img/placeholder.png' %}" alt="User cover">
+        </div>
+        <div class="user-profile-inner">
+          <h4 class="white">Candidate A</h4>
+          <img src="{% static 'img/avatar.png' %}" class="img-circle profile-avatar" alt="User avatar"> <!--Change image candidate image add here-->
+          <h5>General secretary</h5>
+            
+          <!-- User button -->
+          <div class="user-button">
+            <div class="row">
+            	<div class="col-md-3">
+            	</div>
+              <div class="col-md-6">
+                <button type="button" class="btn btn-success btn-sm btn-block"><i class="fa fa-angle-double-down"></i> VOTE HERE <i class="fa fa-angle-double-down"></i></button>
+                <input type="radio" id="voteR" name="fav_language" value="Candidate">
+              </div>
+             
+            </div>
+          </div>
+        </div>
+      </div>
+    </div> 
+    
+    <div class="col-sm-4">
+        <!-- Begin user profile -->
+      <div class="box-info text-center user-profile-2">
+        <div class="header-cover">
+          <img src="{% static 'img/placeholder.png' %}" alt="User cover">
+        </div>
+        <div class="user-profile-inner">
+          <h4 class="white">Candidate B</h4>
+          <img src="{% static 'img/avatar1.png' %}" class="img-circle profile-avatar" alt="User avatar"> <!--Change image candidate image add here-->
+          <h5>General secretary</h5>
+            
+          <!-- User button -->
+          <div class="user-button">
+            
+             <div class="row">
+            	<div class="col-md-3">
+            	</div>
+              <div class="col-md-6">
+                <button type="button" class="btn btn-success btn-sm btn-block"><i class="fa fa-angle-double-down"></i> VOTE HERE <i class="fa fa-angle-double-down"></i></button>
+                <input type="radio" id="voteR" name="fav_language" value="Candidate">
+              </div>
+             
+            </div>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="col-sm-4">
+        <!-- Begin user profile -->
+      <div class="box-info text-center user-profile-2">
+        <div class="header-cover">
+          <img src="{% static 'img/placeholder.png' %}" alt="User cover">
+        </div>
+        <div class="user-profile-inner">
+          <h4 class="white">Candidate C</h4>
+          <img src="{% static 'img/avatar2.png' %}" class="img-circle profile-avatar" alt="User avatar"> <!--Change image candidate image add here-->
+          <h5>General secretary</h5>
+            
+          <!-- User button -->
+          <div class="user-button">
+            <div class="row">
+            	<div class="col-md-3">
+            	</div>
+              <div class="col-md-6">
+                <button type="button" class="btn btn-success btn-sm btn-block">
+                      <i class="fa fa-angle-double-down"></i> VOTE HERE <i class="fa fa-angle-double-down"></i></button>
+                <input type="radio" id="voteR" name="fav_language" value="Candidate">
+              </div>
+             
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+	
+
+</div>                      
+</body>
+</html>
