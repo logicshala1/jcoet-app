@@ -33,3 +33,16 @@ class Student(models.Model):
    
     def __str__(self):
         return self.name
+
+class Election(models.Model):
+    election_name = models.CharField(max_length=50)
+
+    def __str__(self):
+        return self.election_name
+
+class Position(models.Model):
+    election_post = models.CharField(max_length=50)
+    election = models.ForeignKey(Election,on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.election_post

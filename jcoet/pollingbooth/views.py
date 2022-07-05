@@ -97,11 +97,61 @@ def displayHomePage(request):
     return render(request,'home-page.html')
 
 def displayDashboardPage(request):
-    return render(request,'dashboard.html')
+    if request.method == "POST":
+
+        data_dict = request.POST
+        election = data_dict['election']
+    
+    election_details = Election.objects.all()
+
+    context = {"elections":election_details}
+
+    return render(request,'dashboard.html',context)
 
 def displayNominee(request):
     return render(request,'nominee.html')
 
+def displayResultPage(request):
+    return render(request,'voting-result.html')
+
 def adminSignupPage(request):
     return render(request,'admin-signup.html')
 
+def adminVoteUpdatePage(request):
+    if request.method == "POST":
+       
+        data_dict = request.POST
+
+        election_name = data_dict['election_name']
+
+        election = Election.objects.create(
+            election_name=election_name
+            )
+
+    election_details = Election.objects.all()
+
+    context = {"elections":election_details}
+    
+    return render(request,'admin-updatevote.html',context)
+
+def adminAddPostPage(request):
+    if request.method == "POST":
+
+        data_dict = request.POST
+        election_post = data_dict['election_post']
+        election = data_dict['election']
+
+        post = Position.objects.create(
+            election_post=election_post,
+            election_id=election
+            )
+
+    position_details = Position.objects.all()
+    election_details = Election.objects.all()
+
+    context = {"elections":election_details,"positions":position_details}
+
+    return render(request,'admin-addpost.html',context)
+
+def adminAddNomineePage(request):
+    return render(request,'admin-addnominee.html')
