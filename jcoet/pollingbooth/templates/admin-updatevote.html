@@ -39,19 +39,25 @@
     <main>
       <div class="py-5 text-center">
         <h2>Add Voting Update </h2>
-
+      
       </div>
 
       <div class="row g-5">
         <div class="col-md-5 col-lg-4 order-md-last">
           <h4 class="d-flex justify-content-between align-items-center mb-3">
-            <span class="text-primary">Voting Details</span>
+            <span class="text-primary">List of Elections</span>
           </h4>
           <ul class="list-group mb-3">
             {% for election in elections %}
             <li class="list-group-item d-flex justify-content-between lh-sm">
               <div>
                 <h6 class="my-0">Election Department: {{election.election_name}}</h6>
+                Branches applicable:
+                {% for department in election.branch.all %}
+                <p>
+                <b>{{ department.branch }}</b>  
+                </p>
+                {% endfor %}
               </div>
             </li>
             {% endfor %}
@@ -59,13 +65,20 @@
 
         </div>
         <div class="col-md-7 col-lg-8">
-          <h4 class="mb-3">Voting Details</h4>
+          <h4 class="mb-3">Create a Election</h4>
           <form method="post">
             {% csrf_token %}
             <div class="row g-3">
               <div class="col-sm-6">
-                <label for="election" class="form-label">Election Department</label>
+                <label for="election" class="form-label">Election Name</label>
                 <input name="election_name" type="text" class="form-control" id="election" placeholder="" value="">    
+              </div>
+              <div class="col-sm-6">
+                <label for="election" class="form-label">Branches Applicable</label>
+                {% for i in branches %} 
+                  <input type="checkbox" id="vehicle1" name="checkbox-branches" value="{{ i.id }}">
+                  <label for="vehicle1"> {{ i.branch }}</label><br>
+                {% endfor %}  
               </div>
             </div>
 

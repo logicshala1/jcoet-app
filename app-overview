@@ -1,1 +1,22 @@
 This application is built on Django framework and contributed by students enrolled in project mentorship program
+
+
+
+1. makemigrations (models-> sql queries) 
+2. migrate        (sql queries -> executes)
+
+
+--------polling booth----------------
+
+GS - All Departments
+EESA - Specific Department
+
+
+DEP - ELECTION has MANY-TO-MANY 
+
+
+Authority           Department             Department-Election-Assc             Election Table
+type=Students       NameDepartment                                              Election Name
+forgien dep
+Alex
+Jack

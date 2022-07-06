@@ -193,16 +193,29 @@ def adminVoteUpdatePage(request):
     if request.method == "POST":
        
         data_dict = request.POST
-
+        print("PRINTING DATA_DICT")
+        print(data_dict)
         election_name = data_dict['election_name']
-
+        print(data_dict.getlist('checkbox-branches'))
+        print("============================")
         election = Election.objects.create(
             election_name=election_name
-            )
+        )
+        print(data_dict['checkbox-branches'])
+        print("=--------------------")
+        for i in data_dict.getlist('checkbox-branches'):
+            election.branch.add(int(i))
+            print(i)
+            
+            
+
+    branch_details = Branch.objects.all()
 
     election_details = Election.objects.all()
-
-    context = {"elections":election_details}
+    election_branches = election_details[0].branch.all()
+    print(election_details)
+    print("DEBUG...")
+    context = {"elections":election_details,"branches":branch_details}
     
     return render(request,'admin-updatevote.html',context)
 
@@ -231,18 +244,16 @@ def adminAddNomineePage(request):
         data_dict = request.POST
         nominee = data_dict['nominee']
         election = data_dict['election']
-        position = data_dict['position']
-
+        print(election)
+        print("------****------")
         nominee = Nominee.objects.create(
             nominee=nominee,
-            election_id=election,
-            position_id=position
+            election_id=int(election),
             )
 
     nominee_details = Nominee.objects.all()
     election_details = Election.objects.all()
-    position_details = Position.objects.all()
 
-    context = {"elections":election_details,"positions":position_details,"nominees":nominee_details}
+    context = {"elections":election_details,"nominees":nominee_details}
     
     return render(request,'admin-addnominee.html',context)

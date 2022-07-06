@@ -58,7 +58,6 @@
             <li class="list-group-item d-flex justify-content-between lh-sm">
               <div>
                 <h6 class="my-0">Candidate Name: {{nominee.nominee}}</h6>
-                <small class="text-muted">Position: {{nominee.position.election_post}}</small>
               </div>
               <span class="text-muted">Election Name: {{nominee.election.election_name}}</span>
             </li>
@@ -76,15 +75,7 @@
                 <input name="nominee" type="text" class="form-control" id="name" placeholder="" value="" required>
               </div>
 
-              <div class="col-sm-6">
-                <label for="post" class="form-label">Position</label>
-                <select name="position" class="form-select" id="">
-                  <option selected disabled> --select-- </option>
-                  {% for detail in positions %}
-                  <option value="{{detail.id}}">{{detail.election_post}}</option>
-                  {% endfor %}
-                </select>
-              </div>
+              
             </div>
 
             <hr class="my-4">

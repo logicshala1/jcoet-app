@@ -58,7 +58,7 @@ class Student(models.Model):
 
 class Election(models.Model):
     election_name = models.CharField(max_length=50)
-
+    branch = models.ManyToManyField(Branch)
     def __str__(self):
         return self.election_name
 
@@ -85,7 +85,7 @@ class Authority(models.Model):
 class Nominee(models.Model):
     nominee = models.CharField(max_length=500)
     election = models.ForeignKey(Election,on_delete=models.CASCADE)
-    position = models.ForeignKey(Position,on_delete=models.CASCADE)
+    position = models.ForeignKey(Position,on_delete=models.CASCADE,null=True,blank=True)
 
     def __str__(self):
         return self.nominee
