@@ -109,7 +109,7 @@ def displayStudentForm(request):
             conform_password = conform_password,
             college_id=college, branch_id=branch, year_id=year
             )
-
+        #TODO Kiran - type as student and change Student to Authority
     student_details = Student.objects.all()
     college_details = College.objects.all()
     year_details = Year.objects.all()
@@ -170,12 +170,15 @@ def adminSignupPage(request):
         
        
         print("Trying to create")
+        #TODO - Kiran - To check if database is updated or not
         admin = Authority.objects.create(
             name=name, email=email,
             mobile=mobile_number, college=college, 
             role=role, password=password,
             conform_password = conform_password,
+            type="head"
             )
+
 
     admin_details = Authority.objects.all()
 

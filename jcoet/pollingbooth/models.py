@@ -73,6 +73,7 @@ class Authority(models.Model):
     name = models.CharField(max_length=500)
     email = models.CharField(max_length=500)
     mobile = models.CharField(max_length=500)
+    type = models.CharField(max_length=100)
     college = models.CharField(max_length=500)
     role = models.CharField(max_length=500)
     password = models.CharField(max_length=50)
