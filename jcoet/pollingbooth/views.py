@@ -1,6 +1,39 @@
+from binascii import rledecode_hqx
 from django.shortcuts import render
 from .models import *
+from django.contrib.auth import authenticate, login
 # Create your views here.
+
+def studentLoginForm(request):
+    if request.method =='POST':
+        username = request.POST['email']
+        password = request.POST['passwordd']
+        print(username)
+        print(password)
+        user = authenticate(request,username=username,password=password)
+        if user is not None:
+            login(request,user)
+            print(user.id)
+
+            print("Correct Person")
+            votinguser_details = VotingUsers.objects.filter(user_id=user.id)
+            #data = votinguser_details.values()
+            print(votinguser_details.values_list())
+            #@Kiran, Aniket - Get this from Database
+            
+            if(TypeLogin == "head"):
+                return render(request,'admin-updatevote.html')
+            elif(TypeLogin == "student"):
+                return render(request,'dashboard.html')
+        else:
+            print("Wrong Person")
+            return render(request,'login-form.html')
+
+
+
+
+    return render(request,'login-form.html')
+
 def displayCollegeForm(request):
     if request.method == "POST":
        
@@ -76,7 +109,7 @@ def displayStudentForm(request):
             conform_password = conform_password,
             college_id=college, branch_id=branch, year_id=year
             )
-
+        #TODO Kiran - type as student and change Student to Authority
     student_details = Student.objects.all()
     college_details = College.objects.all()
     year_details = Year.objects.all()
@@ -87,8 +120,6 @@ def displayStudentForm(request):
 
     return render(request,'register-form.html', context)
  
-def studentLoginForm(request):
-    return render(request,'login-form.html')
 
 def forgotPasswordForm(request):
     return render(request,'forgot-pwd.html')
@@ -109,28 +140,82 @@ def displayDashboardPage(request):
     return render(request,'dashboard.html',context)
 
 def displayNominee(request):
-    return render(request,'nominee.html')
+    if request.method == "POST":
+
+        data_dict = request.POST
+        nominee = data_dict['nominee']
+        position = data_dict['position']
+    
+    nominee_details = Nominee.objects.all()
+    position_details = Position.objects.all()
+
+    context = {"positions":position_details,"nominees":nominee_details}
+
+    return render(request,'nominee.html',context)
 
 def displayResultPage(request):
     return render(request,'voting-result.html')
 
 def adminSignupPage(request):
-    return render(request,'admin-signup.html')
+    if request.method == "POST":
+
+        data_dict = request.POST
+        name = data_dict['name']
+        email = data_dict['email']
+        mobile_number = data_dict['mobile_number']
+        college = data_dict['college']
+        role = data_dict['role']
+        password = data_dict['password']
+        conform_password = data_dict['conform_password']
+        
+       
+        print("Trying to create")
+        #TODO - Kiran - To check if database is updated or not
+        admin = Authority.objects.create(
+            name=name, email=email,
+            mobile=mobile_number, college=college, 
+            role=role, password=password,
+            conform_password = conform_password,
+            type="head"
+            )
+
+
+    admin_details = Authority.objects.all()
+
+    context = {"authority":admin_details}
+
+    return render(request,'admin-signup.html',context)
+
+def adminLoginPage(request):
+    return render(request,'admin-login.html')
 
 def adminVoteUpdatePage(request):
     if request.method == "POST":
        
         data_dict = request.POST
-
+        print("PRINTING DATA_DICT")
+        print(data_dict)
         election_name = data_dict['election_name']
-
+        print(data_dict.getlist('checkbox-branches'))
+        print("============================")
         election = Election.objects.create(
             election_name=election_name
-            )
+        )
+        print(data_dict['checkbox-branches'])
+        print("=--------------------")
+        for i in data_dict.getlist('checkbox-branches'):
+            election.branch.add(int(i))
+            print(i)
+            
+            
+
+    branch_details = Branch.objects.all()
 
     election_details = Election.objects.all()
-
-    context = {"elections":election_details}
+    election_branches = election_details[0].branch.all()
+    print(election_details)
+    print("DEBUG...")
+    context = {"elections":election_details,"branches":branch_details}
     
     return render(request,'admin-updatevote.html',context)
 
@@ -141,7 +226,7 @@ def adminAddPostPage(request):
         election_post = data_dict['election_post']
         election = data_dict['election']
 
-        post = Position.objects.create(
+        position = Position.objects.create(
             election_post=election_post,
             election_id=election
             )
@@ -154,4 +239,21 @@ def adminAddPostPage(request):
     return render(request,'admin-addpost.html',context)
 
 def adminAddNomineePage(request):
-    return render(request,'admin-addnominee.html')
+    if request.method == "POST":
+
+        data_dict = request.POST
+        nominee = data_dict['nominee']
+        election = data_dict['election']
+        print(election)
+        print("------****------")
+        nominee = Nominee.objects.create(
+            nominee=nominee,
+            election_id=int(election),
+            )
+
+    nominee_details = Nominee.objects.all()
+    election_details = Election.objects.all()
+
+    context = {"elections":election_details,"nominees":nominee_details}
+    
+    return render(request,'admin-addnominee.html',context)

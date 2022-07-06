@@ -94,7 +94,9 @@ background: white;
 <body>
 	<div class="container bootstrap snippets bootdey">
 		<hr class="style-1">
-		<h3 class="title">Who Will Be The GS of JCOET ?</h3>
+    {% for nominee in nominees %}
+		<h3 class="title">Who Will Be The {{nominee.position.election_post}} of JCOET ?</h3>
+    {% endfor %}
     <div class="col-sm-4">
       <!-- Begin user profile -->
       <div class="box-info text-center user-profile-2">

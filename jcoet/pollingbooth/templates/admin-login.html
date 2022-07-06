@@ -128,11 +128,11 @@
 
             <hr>         
 
-            <label for="email"><b>Username</b></label>
-            <input placeholder="Enter username" name="email" id="email" required>
+            <label for="email"><b>Email</b></label>
+            <input type="email" placeholder="Enter Email" name="email" id="email" required>
 
             <label for="psw"><b>Password</b></label>
-            <input type="password" placeholder="Enter Password" name="passwordd" id="psw" required>
+            <input type="password" placeholder="Enter Password" name="password" id="psw" required>
 
             <div class="form-check mb-3">
               <label class="form-check-label float-start">
@@ -141,12 +141,13 @@
             </div>
             <hr>
            
-            <button type="submit">LOGIN</button>
+            <input type="button" class="btn btn-info registerbtn" value="Login" onclick=" relocate_home()">
+
 
           </div>
 
           <div class="container signin">
-            <p>Don't have an account? <a href="http://127.0.0.1:8000/polling/registerform/">Register</a></p>
+            <p>Don't have an account? <a href="http://127.0.0.1:8000/polling/adminsignup/">Register</a></p>
           </div>
           <br>
         </form>

@@ -35,7 +35,7 @@
 
     
     <!-- Custom styles for this template -->
-    <link href="cover.css" rel="stylesheet">
+    <link href="{% static 'cover.css' %}" rel="stylesheet">
   </head>
   <body class="d-flex h-100 text-center text-white bg-dark">
     
@@ -44,7 +44,8 @@
     <div>
       <h3 class="float-md-start mb-0"></h3>
       <nav class="nav nav-masthead justify-content-center float-md-end">
-        <a class="nav-link active" aria-current="page" href="#">App</a>
+        <a class="nav-link active" aria-current="page" href="#">Home</a>
+        <a class="nav-link " aria-current="page" href="{% url 'apps-display' %}">Apps</a>
         <a class="nav-link" href="{% url 'team-display' %}">Team</a>
         <a class="nav-link" href="http://www.logicshala.com/">Logic Shala</a>
       </nav>
@@ -55,7 +56,7 @@
     <h1>JCOET APP</h1>
     <p class="lead">JCOET APP is created by final year students enrolled in Project Mentorship Program at Logic Shala</p>
     <p class="lead">
-      <a href="#" class="btn btn-lg btn-secondary fw-bold border-white bg-white">View</a>
+      <a href="{% url 'apps-display' %}" class="btn btn-lg btn-secondary fw-bold border-white bg-white">View</a>
     </p>
   </main>
 

@@ -50,12 +50,12 @@
             <span class="text-primary">Voting Details</span>
           </h4>
           <ul class="list-group mb-3">
-            {% for post in positions %}
+            {% for detail in positions %}
             <li class="list-group-item d-flex justify-content-between lh-sm">
               <div>
-                <h6 class="my-0">Candidate Position: {{post.election_post}}</h6>
+                <h6 class="my-0">Candidate Position: {{detail.election_post}}</h6>
               </div>
-              <span class="text-muted">: {{post.election.election_name}}</span>
+              <span class="text-muted">Election Name: {{detail.election.election_name}}</span>
             </li>
             {% endfor %}
           </ul>
@@ -74,10 +74,10 @@
             <div class="row g-3 mt-4">
 
                 <div class="col-sm-6">
-                  <label for="election" class="form-label">Election Level</label>
+                  <label for="vote" class="form-label">Election Level</label>
                   <select name="election" class="form-select" id="">
                     <option selected disabled> --select-- </option>
-                    {% for election in electionss %}
+                    {% for election in elections %}
                     <option value="{{election.id}}">{{election.election_name}}</option>
                     {% endfor %}
                   </select>

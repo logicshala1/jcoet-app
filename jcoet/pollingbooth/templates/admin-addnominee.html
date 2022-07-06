@@ -9,6 +9,11 @@
   <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
   <meta name="generator" content="Hugo 0.84.0">
   <title></title>
+
+  <!-- <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/checkout/"> -->
+
+
+
   <!-- Bootstrap core CSS -->
   <link href="{% static 'bootstrap.min.css' %}" rel="stylesheet">
 
@@ -38,47 +43,64 @@
   <div class="container">
     <main>
       <div class="py-5 text-center">
-        <h2>Add Voting Update </h2>
-
+       
+        <h2>Add Nominee Detail for Election</h2>
+       
       </div>
 
       <div class="row g-5">
         <div class="col-md-5 col-lg-4 order-md-last">
           <h4 class="d-flex justify-content-between align-items-center mb-3">
-            <span class="text-primary">Nominee Details</span>
+            <span class="text-primary">Candidate Details</span>
           </h4>
           <ul class="list-group mb-3">
-            {% for election in elections %}
+            {% for nominee in nominees %}
             <li class="list-group-item d-flex justify-content-between lh-sm">
               <div>
-                <h6 class="my-0">Candidate Name: {{election.election_name}}</h6>
+                <h6 class="my-0">Candidate Name: {{nominee.nominee}}</h6>
               </div>
+              <span class="text-muted">Election Name: {{nominee.election.election_name}}</span>
             </li>
             {% endfor %}
           </ul>
 
         </div>
         <div class="col-md-7 col-lg-8">
-          <h4 class="mb-3">Nominee Details</h4>
-          <form method="post">
+          <h4 class="mb-3">Candidate Details</h4>
+          <form method="post" class="needs-validation" novalidate>
             {% csrf_token %}
             <div class="row g-3">
               <div class="col-sm-6">
-                <label for="nominee" class="form-label">Candidate Name</label>
-                <input name="election_name" type="text" class="form-control" id="nominee" placeholder="" value="">    
+                <label for="name" class="form-label">Candidate Name</label>
+                <input name="nominee" type="text" class="form-control" id="name" placeholder="" value="" required>
               </div>
+
+              
             </div>
 
-             
-            <button class="w-20 btn btn-primary btn-lg mt-5" type="submit">Submit</button>
+            <hr class="my-4">
+            <div class="row g-3">
+              <div class="col-sm-6">
+                <label for="dept" class="form-label">Election Name</label>
+                <select name="election" class="form-select" id="">
+                  <option selected disabled> --select-- </option>
+                  {% for election in elections %}
+                  <option value="{{election.id}}">{{election.election_name}}</option>
+                  {% endfor %}
+                </select>
+
+              </div>
+              
+            </div>
+            <hr class="my-4">
+
+            <button class="w-100 btn btn-primary btn-lg" type="submit">Submit</button>
           </form>
         </div>
       </div>
     </main>
 
   </div>
-
- 
 
 
   <script src="{% static 'bootstrap.bundle.min.js' %}"></script>
