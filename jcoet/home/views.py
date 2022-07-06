@@ -8,3 +8,6 @@ def homeDisplay(request):
 
 def teamDisplay(request):
     return render(request,'team.html')
+
+def appDisplay(request):
+    return render(request,'app-display.html')

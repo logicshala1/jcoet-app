@@ -9,6 +9,12 @@ class VotingDetails(models.Model):
     userCreated = models.DateTimeField(default=timezone.now)
     def __str__(self):
         return f'{self.user.username}'
+class ElectionUsers(models.Model):
+    user = models.OneToOneField(User,on_delete=models.CASCADE)
+    typeOfLogin = models.CharField(max_length=300,blank=True,default='student')
+
+    def __str__(self):
+        return self.user.username
 
 class VotingUsers(models.Model):
     user = models.OneToOneField(User,on_delete=models.CASCADE)
