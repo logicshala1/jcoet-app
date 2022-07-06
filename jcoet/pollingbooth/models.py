@@ -22,6 +22,7 @@ class VotingUsers(models.Model):
 
     def __str__(self):
         return self.user.username
+        
 class College(models.Model):
     college_name = models.CharField(max_length=80)
 
@@ -67,3 +68,23 @@ class Position(models.Model):
 
     def __str__(self):
         return self.election_post
+
+class Authority(models.Model):
+    name = models.CharField(max_length=500)
+    email = models.CharField(max_length=500)
+    mobile = models.CharField(max_length=500)
+    college = models.CharField(max_length=500)
+    role = models.CharField(max_length=500)
+    password = models.CharField(max_length=50)
+    conform_password = models.CharField(max_length=50)
+
+    def __str__(self):
+        return self.name
+    
+class Nominee(models.Model):
+    nominee = models.CharField(max_length=500)
+    election = models.ForeignKey(Election,on_delete=models.CASCADE)
+    position = models.ForeignKey(Position,on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.nominee

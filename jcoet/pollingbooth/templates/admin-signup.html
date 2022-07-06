@@ -109,12 +109,12 @@
         }
 
         .form {
-            display: inline-block;
-
-            background-color: white;
+            background-color: #f7ec86;
+            border-radius: 20px;
+            box-shadow: 2px 2px 2px 2px white;
         }
 
-        h3{
+        h3 {
             text-align: center;
         }
     </style>
@@ -124,7 +124,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-3"></div>
-            <div class="col-md-6 border border-2 rounded form">
+            <div class="col-md-6 form">
                 <form method="POST">
                     {% csrf_token %}
                     <div class="container1">
@@ -138,16 +138,19 @@
                         <input type="email" placeholder="Enter Email" name="email" id="email" required>
 
                         <label for="phone"><b>Mobile Number</b></label>
-                        <input type="tel" placeholder="Enter Mobile Number" name="mobile_number" id="phone" required>
+                        <input type="text" placeholder="Enter Mobile Number" name="mobile_number" id="phone" required>
 
                         <label for="clg"><b>College</b></label>
                         <select name="college" id="clg">
                             <option selected disabled>--select--</option>
+                            <option>Jagadambha College of Engineering and Technology, Yavatmal</option>
                         </select required>
 
                         <label for="role"><b>Role</b></label>
-                        <select name="year" id="role">
+                        <select name="role" id="role">
                             <option selected disabled>--select--</option>
+                            <option>Head of Department</option>
+                            <option>Assistant Professor</option>
                         </select required>
 
                         <label for="psw"><b>Password</b></label>
