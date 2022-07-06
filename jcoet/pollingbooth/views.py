@@ -169,7 +169,7 @@ def adminSignupPage(request):
         conform_password = data_dict['conform_password']
         
        
-
+        print("Trying to create")
         admin = Authority.objects.create(
             name=name, email=email,
             mobile=mobile_number, college=college, 
