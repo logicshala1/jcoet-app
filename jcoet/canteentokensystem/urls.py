@@ -10,4 +10,5 @@ urlpatterns = [
     path('menu/',menu, name="menu"),
     path('add-item/',addItem,name="add-item"),
     path('canteen-admin/',adminCanteen,name="admin"),
+    path('main/',mainPage,name="main-page")
 ]
