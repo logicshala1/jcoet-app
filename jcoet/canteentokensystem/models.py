@@ -1,4 +1,7 @@
 from django.db import models
+# college_id: ADM123
+#password: admin123
+
 
 # Create your models here.
 #charField: H # 1
