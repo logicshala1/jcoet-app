@@ -140,16 +140,17 @@ def displayDashboardPage(request):
     return render(request,'dashboard.html',context)
 
 def displayNominee(request):
-    if request.method == "POST":
 
+    electionID = request.GET.get('election')
+    
+    if request.method == "POST":
         data_dict = request.POST
         nominee = data_dict['nominee']
         position = data_dict['position']
     
-    nominee_details = Nominee.objects.all()
-    position_details = Position.objects.all()
-
-    context = {"positions":position_details,"nominees":nominee_details}
+    nominee_details = Nominee.objects.all().filter(election=electionID)
+    election_name = Election.objects.all().filter(id=electionID)
+    context = {"nominees":nominee_details,"election_name":election_name[0]}
 
     return render(request,'nominee.html',context)
 
