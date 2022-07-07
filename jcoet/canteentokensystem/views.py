@@ -5,6 +5,8 @@ from django.shortcuts import redirect, render
 from django.shortcuts import render
 from .models import *
 
+def mainPage(request):
+    return render(request,"user-ui.html")
 
 def displayorderForm(request):
     if request.method == "POST":
@@ -51,7 +53,7 @@ def userLogin(request):
             if user.is_admin:
                 return redirect('admin')
             else:
-                return redirect('menu')
+                return redirect('main-page')
 
     return render(request,"form_login.html")
 
