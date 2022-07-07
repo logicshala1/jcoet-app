@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html>
 <head>
@@ -57,7 +58,7 @@ button:hover
   <div class="container">
     <div id="t"><h1 align="center">FOODZONE</h1></div><br>
     <div class="card" id="item1">
-      <img src="samosa.jpg">
+      <img src="{% static 'img/samosa.jpg' %}">
       <div class="title">Samosa</div>
       <div>
         <label>Quantity:</label>
@@ -73,7 +74,7 @@ button:hover
     </div>
 
           <div class="card" id="item2">
-      <img src="kachori.jpg">
+      <img src="{% static 'img/kachori.jpg' %}">
       <div class="title">Kachori</div>
       <div>
         <label>Quantity:</label>
@@ -90,7 +91,7 @@ button:hover
 
 
        <div class="card" id="item3">
-      <img src="tea.jpg">
+      <img src="{% static 'img/tea.jpg' %}">
       <div class="title">Tea</div>
       <div>
         <label>Quantity:</label>
@@ -107,7 +108,7 @@ button:hover
 
 
        <div class="card" id="item4">
-      <img src="Dosa.jpg">
+      <img src="{% static 'img/Dosa.jpg' %}">
       <div class="title">Dosa</div>
       <div>
         <label>Quantity:</label>
@@ -124,7 +125,7 @@ button:hover
 <br><br>
 
     <div class="card" id="item5">
-      <img src="icecream.jpg">
+      <img src="{% static 'img/icecream.jpg' %}">
       <div class="title">Ice-Cream</div>
       <div>
         <label>Quantity:</label>
@@ -141,7 +142,7 @@ button:hover
 
 
     <div class="card" id="item6">
-      <img src="sandwich.jpg">
+      <img src="{% static 'img/sandwich.jpg' %}">
       <div class="title">Sandwich</div>
       <div>
         <label>Quantity:</label>
@@ -158,7 +159,7 @@ button:hover
 
 
     <div class="card" id="item7">
-      <img src="chocolate.jpg">
+      <img src="{% static 'chocolates.jpg' %}">
       <div class="title">Chocolates</div>
       <div>
         <label>Quantity:</label>
@@ -175,7 +176,7 @@ button:hover
 
 
     <div class="card" id="item8">
-      <img src="chinese.jpg">
+      <img src="{% static 'img/chinese.jpg' %}">
       <div class="title">Chinese Noodles</div>
       <div>
         <label>Quantity:</label>

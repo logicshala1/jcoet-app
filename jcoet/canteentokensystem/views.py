@@ -93,3 +93,12 @@ def adminregister(request):
             return redirect("login")
 
     return render(request,"form_created_account.html")
+
+def feedback(request):
+    if request.method == "POST":
+        print("GOT THE DATA")
+        print(request.POST)
+        data_dict = request.POST
+        print("Feedback ",data_dict['Feedback'])
+    
+    return render (request,'feedback.html')

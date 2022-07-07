@@ -2,8 +2,8 @@
 <html>
 <style>
 .btn-group button {
-  background-color: #f40db6; /* Green background */
-  border: 1px solid rgb(156, 15, 216); /* Green border */
+  background-color: #0a0000; /* Black background */
+  border: 1px solid rgb(10, 0, 0); /* black border */
   color: white; /* White text */
   padding: 10px 24px; /* Some padding */
   cursor: pointer; /* Pointer/hand icon */
@@ -11,14 +11,14 @@
 }
 h1{  
     text-align: center;  
-    color: #1797d8;  
+    color: #E31E24;  
     padding: 20px;  
 }
 h2{
-    color: #0cea26;
+    color:#FFFFFF;
 }
 body {
-  background-color: #f4dc74;
+  background-color: #E0E2E0;
 }
 
   
@@ -39,10 +39,10 @@ body {
   background-color: #4807eb;
 }
 label{
-    color: rgba(194, 245, 9, 0.671);
+    color: rgba(10, 0, 0);
 }
 select{
-    color: #ef829d;
+    color: ##0a0000;
 }
 .center {
   margin: 0;
@@ -53,18 +53,16 @@ select{
   transform: translate(-50%, -50%);
 }
 .btn-group{
-    background-image: linear-gradient(rgb(136, 165, 237),rgb(6, 38, 39));
-    border-radius: 15px;
-    padding:10px ;
-    padding-top:0px ;
-    padding:10px ;
-    width:100 px;
-    color: rgb(225, 187, 167);
-    text-align: center;
-    cursor: pointer;
+  background-image: linear-gradient(rgb(255,255,255),rgb(0,141,210));
+  border-radius: 15px;
+  padding:10px ;
+  padding-top:0px ;
+  padding:10px ;
+  width:100 px;
+  color: rgb(225, 187, 167);
+  text-align: center;
+  cursor: pointer;
 }
-
-
 
 
 </style>
@@ -76,17 +74,22 @@ select{
         <img src="" alt="">  
 
 <div class="btn-group">
-    
-  <a href="{% url 'add-item' %}">Manage items</a> 
-  <a href="">Manage User </a>
-  <a href="">Manage Order </a>
-  <a href="" >Feedback Message  </a>
+  <a href="{% url 'add-item' %}">MANAGE ITEM</a>&nbsp; &nbsp;
+  <a href="">MANAGE ORDER</a>&nbsp; &nbsp;
+  <a href="" >FEEDBACK MESSAGES </a>
   <br>
   <br>
-  <h2>Item Name </h2>
+  <h2>ITEM NAME</h2>
 
-<label for="Cooldrinks">Choose Cold Drinks :</label>
-
+  <label for="Breakfast">FAST FOOD :</label>
+  <select id="Breakfast">
+      <option value="samosa">samosa</option>
+      <option value="Kachori">Kachori</option>
+      <option value="AlluWada">AlluWada</option>
+      <option value="Poha">Poha</option>
+    </select>
+    <span>----------------</span>
+<label for="Cooldrinks">Bevrages :</label>
 <select id="Cold Drinks">
   <option value="Sprite">Sprite</option>
   <option value="Mazaa">Mazaa</option>
@@ -94,35 +97,24 @@ select{
   <option value="Fruti">Fruti</option>
 </select>
 <span>----------------</span>
-<label for="Wefers ">Choose Wefers  :</label>
+<label for="Wefers ">OTHER :</label>
 <select id="Wefers ">
     <option value="Chips">Chips</option>
     <option value="kurkure">kurkure</option>
     <option value="Triangles">Triangles</option>
     <option value="TedeMede">TedeMede</option>
   </select>
-  <span>----------------</span>
-  <label for="Breakfast">Choose Breakfast :</label>
-<select id="Breakfast">
-    <option value="samosa">samosa</option>
-    <option value="Kachori">Kachori</option>
-    <option value="AlluWada">AlluWada</option>
-    <option value="Poha">Poha</option>
-  </select>
+
 </div>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
+
 <div class="center">
-    <button>PLACE ORDER</button>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<button type="button" onclick="alert('Data Updated')">UPDATE</button>
   </div>
-
-
 </body>
 </html>
