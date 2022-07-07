@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <style>
 th{    
@@ -85,7 +86,8 @@ input[type=Logout]:hover {
 <body>    
 <h2>FeedBackForm</h2>    
 <div class="container">    
-  <form>    
+  <form method="post" >
+    {% csrf_token %}    
     <div class="row">    
       <div class="col-25">    
         <label for="fname">First Name</label>    
@@ -115,7 +117,7 @@ input[type=Logout]:hover {
         <label for="message_for_owner">feedback for canteen</label>    
       </div>    
       <div class="col-75">    
-        <textarea id="subject" name="subject" placeholder="Write something.." style="height:200px"></textarea>    
+        <textarea id="subject" name="feedback" placeholder="Write something.." style="height:200px"></textarea>    
       </div>    
     </div>    
     <div class="row">    

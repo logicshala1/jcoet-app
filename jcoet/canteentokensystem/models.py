@@ -26,6 +26,15 @@ class MenuItems(models.Model):
     def __str__(self):
         return self.name
 
+class FeedbackMessage(models.Model):
+    name = models.CharField(max_length=50)
+    message = models.CharField(max_length=500)
+    date = models.DateTimeField()
+
+    def __str__(self):
+        return self.name
+
+
 class order(models.Model):
     name_of_student = models.ForeignKey(UserDetails, on_delete=models.CASCADE)
     name_of_item = models.ManyToManyField(MenuItems)

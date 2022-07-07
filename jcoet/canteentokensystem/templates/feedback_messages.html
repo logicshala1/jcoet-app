@@ -1,0 +1,35 @@
+{% load static %}
+<html>
+<title>Feedback messages</title>
+  
+<h style="color: white;">Messages</h>
+<style>
+table{
+     background-color:rgb(26, 26, 55)
+}
+
+.nitin
+   {
+        background-image: url("co11.jpg");
+        height: 1000px;
+        background-size: 100%;
+        background-repeat: no-repeat;
+    }
+</style>
+</html>
+<body class="nitin">
+<TABLE BORDER=”2″ CELLSPACING=”50″>
+<TR>
+<TD width="200px" height="50px"> <b style="color: white;">Name</b></TD>
+<TD width="200px" height="50px"> <b style="color: white;">Date</b></TD>
+<TD width="200px" height="50px"> <b style="color: white;">Messages</b></TD>
+</TR>
+{% for message in messages %}
+<TR>
+     <TD width="200px" height="150px"> <b style="color: white;">{{message.name}}</b></TD>
+     <TD width="200px" height="150px"> <b style="color: white;">{{message.date}}</b></TD>
+     <TD width="100px" height="100px"> <b style="color: white;">{{message.message}}</b></TD>
+</TR>
+{% endfor %}
+</TABLE>
+</body>
