@@ -110,7 +110,7 @@ def studentLoginForm(request):
                 return redirect('polling-home-page')
 
     
-    return render(request,'admin-login.html')
+    return render(request,'login-form.html')
 
 def displayDashboardPage(request):
     if request.method == "POST":
@@ -153,6 +153,7 @@ def displayResultPage(request):
     nominee_details = Nominee.objects.all().filter(election=electionID)
     election_name = Election.objects.all().filter(id=electionID)
     context = {"nominees":nominee_details,"election_name":election_name[0]}
+    return render(request,'voting-result.html',context)
 
 def displayCollegeForm(request):
     if request.method == "POST":
@@ -224,8 +225,6 @@ def adminAddElectionPage(request):
             election.branch.add(int(i))
             print(i)
             
-            
-
     branch_details = Branch.objects.all()
 
     election_details = Election.objects.all()
