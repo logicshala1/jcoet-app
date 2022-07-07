@@ -69,6 +69,11 @@
 			border: 2px solid black;
 			box-shadow: 0 2px 6px 0 rgb(218 218 253 / 65%), 0 2px 6px 0 rgb(206 206 238 / 54%);
 		}
+		#image1{
+			height:200px;
+			width:100%;
+		}
+
 	</style>
 </head>
 
@@ -79,7 +84,7 @@
 		$(document).ready(function () {
 			$("#vote_2").hide();
 			$("#vote_1").hide();
-			$("#vote_3").hide();
+
 		});
 
 		$(document).ready(function () {
@@ -90,11 +95,9 @@
 			$("#link1").click(function () {
 				$("#vote_2").hide();
 			});
+
 			$("#link1").click(function () {
 				$("#vote_3").hide();
-			});
-			$("#link1").click(function () {
-				$("#vote_4").hide();
 			});
 
 			$("#link2").click(function () {
@@ -104,15 +107,9 @@
 			$("#link2").click(function () {
 				$("#vote_1").hide();
 			});
+
 			$("#link2").click(function () {
 				$("#vote_3").hide();
-			});
-			$("#link2").click(function () {
-				$("#vote_4").hide();
-			});
-
-			$("#link3").click(function () {
-				$("#vote_3").show();
 			});
 
 			$("#link3").click(function () {
@@ -122,7 +119,7 @@
 				$("#vote_1").hide();
 			});
 			$("#link3").click(function () {
-				$("#vote_4").hide();
+				$("#vote_3").hide();
 			});
 
 		});
@@ -138,10 +135,7 @@
 								<img src="{% static 'img/login.png' %}" alt="student"
 									class="rounded-circle p-1 bg-primary" width="110">
 								<div class="mt-3">
-									<h4>Jivan Ghule</h4>
-									<p class="text-secondary mb-1">Electrical Engineering</p>
-									<p class="text-secondary mb-1">PRN Number</p>
-
+									<h4>Welcome !!</h4>
 
 								</div>
 							</div>
@@ -153,168 +147,74 @@
 				<div class="col-lg-8">
 					<div class="card">
 						<div class="card-body">
-							<div class="row mb-3">
-								<div class="col-sm-3">
-									<h6 class="mb-0">Branch</h6>
-								</div>
-								<div class="col-sm-9 text-secondary">
-									<input type="text" class="form-control" value="">
-								</div>
+						</div>
+						<div class="row mb-3">
+							<div class="col-sm-12">
+								<img src="{% static 'img/myvote.png' %}" alt="student" class="p-1 bg-primary mw-100 mh-100", id="image1">
 							</div>
-							<div class="row mb-3">
-								<div class="col-sm-3">
-									<h6 class="mb-0">Year</h6>
-								</div>
-								<div class="col-sm-9 text-secondary">
-									<input type="text" class="form-control" value="">
-								</div>
-							</div>
-							<div class="row mb-3">
-								<div class="col-sm-3">
-									<h6 class="mb-0">Password</h6>
-								</div>
-								<div class="col-sm-9 text-secondary">
-									<input type="text" class="form-control" value="">
-								</div>
-							</div>
-							<div class="row mb-3">
-								<div class="col-sm-3">
-									<h6 class="mb-0">Conform Password</h6>
-								</div>
-								<div class="col-sm-9 text-secondary">
-									<input type="text" class="form-control" value="">
-								</div>
-							</div>
-							<div class="row mt-4 mb-2">
-								<div class="col-sm-3"></div>
-								<div class="col-sm-9 text-secondary">
-									<input type="button" class="btn btn-primary px-4" value="Save Changes">
-								</div>
+							
+						</div>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-sm-12">
+						<div class="card vote_Menu_card">
+							<div class="card-body">
+								<a href="#" class="vote_Menu_link" id="link2">
+									<h6 class="vote_Menu">On Going Voting</h6>
+								</a>
 							</div>
 						</div>
 					</div>
-
 				</div>
-			</div>
-		</div>
 
-		<div class="row">
-
-			<div class="col-sm-4">
-				<div class="card vote_Menu_card">
-					<div class="card-body">
-						<a href="#" class="vote_Menu_link" id="link1">
-							<h6 class="vote_Menu">Previous Voting</h6>
-						</a>
-					</div>
-				</div>
-			</div>
-			<div class="col-sm-4">
-				<div class="card vote_Menu_card">
-					<div class="card-body">
-						<a href="#" class="vote_Menu_link" id="link2">
-							<h6 class="vote_Menu">On Going Voting</h6>
-						</a>
-					</div>
-				</div>
-			</div>
-			<div class="col-sm-4">
-				<div class="card vote_Menu_card">
-					<div class="card-body">
-						<a href="#" class="vote_Menu_link" id="link3">
-							<h6 class="vote_Menu">Up Coming Voting</h6>
-						</a>
-					</div>
-				</div>
-			</div>
-
-		</div>
-
-		<div class="container vote_1" id="vote_1">
-			<div class="row">
-				<div class="col-sm-9">
-					<div class="card">
-						<div class="card-body">
-							{% for election in elections %}
-							<h5><b>{{election.election_name}}</b></h5>
-							{% endfor %}							
+				<div class="container vote_2" id="vote_2">
+					<div class="row">
+						<div class="col-sm-6">
+							<div class="card">
+								<div class="card-body">
+									{% for election in elections %}
+									<h6><b>{{election.election_name}}</b></h6><br>
+									{% endfor %}
+								</div>
+							</div>
 						</div>
-					</div>
-				</div>
-				<div class="col-sm-3">
-					<div class="card">
-						<div class="card-body" align="center">
-							{% for election in elections %}
-							<a href="{% url 'nominee' %}?election={{election.id}}">VOTE</a><br>
-							{% endfor %}	
-						</div>
-					</div>
-				</div>
-			</div>
-				
-		</div>
-	
-		
 
-		<div class="container vote_2" id="vote_2">
-			<div class="row">
-				<div class="col-sm-9">
-					<div class="card">
-						<div class="card-body">
-							{% for election in elections %}
-							<h5><b>{{election.election_name}}</b></h5>
-							{% endfor %}
+						<div class="col-sm-3">
+							<div class="card">
+								<div class="card-body" align="center">
+									{% for election in elections %}
+									<a href="{% url 'nominee' %}?election={{election.id}}">VOTE</a><br><br>
+									{% endfor %}
+								</div>
+							</div>
+						</div>
+
+						<div class="col-sm-3">
+							<div class="card">
+								<div class="card-body" align="center">
+									{% for election in elections %}
+									<a href="{% url 'voting-result' %}?election={{election.id}}">RESULT</a><br><br>
+									{% endfor %}
+								</div>
+							</div>
 						</div>
 					</div>
 				</div>
 
-				<div class="col-sm-3">
-					<div class="card">
-						<div class="card-body" align="center">
-							{% for election in elections %}
-							<a href="{% url 'nominee' %}?election={{election.id}}">VOTE</a><br>
-							{% endfor %}
-						</div>
-					</div>
-				</div>		
-			</div>
-		</div>
-		
-		<div class="container vote_2" id="vote_3">
-			<div class="row">
-				<div class="col-sm-9">
-					<div class="card">
-						<div class="card-body">
-							{% for election in elections %}
-							<h5><b>{{election.election_name}}</b></h5>
-							{% endfor %}
-						</div>
-					</div>
+
+
+				<div class="container vote_2" id="vote_3">
+					<img src="{% static 'img/voice.png' %}" class="img-fluid" id="voteimg">
 				</div>
 
-				<div class="col-sm-3">
-					<div class="card">
-						<div class="card-body" align="center">
-							{% for election in elections %}
-							<a href="#"><button type="button" class="btn btn-warning btn-sm mt-1">VOTE</button></a><br>
-							{% endfor %}
-						</div>
-					</div>
-				</div>
+
 			</div>
-			</div>
-			
-	
-		<div class="container vote_2" id="vote_4">
-			<img src="{% static 'img/voice.png' %}" class="img-fluid" id="voteimg">
-		</div>
-
-
-	</div>
 
 
 
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+			<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 </body>
 
 </html>

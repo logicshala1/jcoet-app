@@ -46,6 +46,7 @@ class Branch(models.Model):
 class Student(models.Model):
     name = models.CharField(max_length=50)
     email = models.CharField(max_length=50)
+    typeLogin = models.CharField(max_length=100,default='student')
     college = models.ForeignKey(College,on_delete=models.CASCADE)
     year = models.ForeignKey(Year,on_delete=models.CASCADE)
     branch = models.ForeignKey(Branch,on_delete=models.CASCADE)
@@ -73,7 +74,7 @@ class Authority(models.Model):
     name = models.CharField(max_length=500)
     email = models.CharField(max_length=500)
     mobile = models.CharField(max_length=500)
-    type = models.CharField(max_length=100)
+    typeLogin = models.CharField(max_length=100,default='admin')
     college = models.CharField(max_length=500)
     role = models.CharField(max_length=500)
     password = models.CharField(max_length=50)
@@ -89,3 +90,11 @@ class Nominee(models.Model):
 
     def __str__(self):
         return self.nominee
+
+class Result(models.Model):
+    total_votes = models.IntegerField(default=0)
+    election = models.ForeignKey(Election,on_delete=models.CASCADE)
+    candidate = models.ForeignKey(Nominee,on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.total_votes
