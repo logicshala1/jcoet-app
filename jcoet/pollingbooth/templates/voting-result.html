@@ -9,11 +9,11 @@
   <link href="{% static 'bootstrap.min.css' %}" rel="stylesheet">
 
   <style type="text/css">
-    hr.style-1 {    
+    hr.style-1 {
       padding: 0;
       border: none;
       border-top: medium double #333;
-      color: hotpink;   
+      color: hotpink;
       text-align: center;
     }
 
@@ -27,6 +27,12 @@
       background: white;
     }
 
+    .title {
+
+      text-align: center;
+      font-weight: bold;
+    }
+
 
     body {
       background: #f7ec86;
@@ -37,25 +43,15 @@
 <body>
 
   <div class="container mt-3">
-    <hr class="style-1"><br>
-    <!-- Blue -->
-    <h3>Candidate Name: A</h3>
-    <div class="progress">
-      <div class="progress-bar" style="width:10%"></div>
-    </div><br><br>
-    <h3>Candidate Name: B</h3>
-    <!-- Green -->
-    <div class="progress">
-      <div class="progress-bar bg-success" style="width:20%"></div>
-    </div><br><br>
+    <hr class="style-1">
+    <h3 class="title">{{election_name}}</h3><br><br>
 
-
-    <!-- Orange -->
-    <h3>Candidate Name: C</h3>
-    <div class="progress">
-      <div class="progress-bar bg-warning" style="width:40%"></div>
+    {% for nominee in nominees %}
+    <h3 class="bg-danger">{{nominee}}</h3>
+    <div>
+      <div><b>Total Number of Votes:</b></div>
     </div><br><br>
-
+    {% endfor %}
   </div>
   <script src="{% static 'bootstrap.bundle.min.js' %}"></script>
 
