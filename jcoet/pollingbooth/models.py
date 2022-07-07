@@ -92,9 +92,9 @@ class Nominee(models.Model):
         return self.nominee
 
 class Result(models.Model):
-    total_votes = models.IntegerField(default=0)
-    election = models.ForeignKey(Election,on_delete=models.CASCADE)
+    
     candidate = models.ForeignKey(Nominee,on_delete=models.CASCADE)
+    voter_name = models.CharField(max_length=500)
 
     def __str__(self):
-        return self.total_votes
+        return self.voter_name

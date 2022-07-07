@@ -16,6 +16,7 @@ urlpatterns = [
     path('addnominee/',adminAddNomineePage, name="add-nominee"),    
     path('dashboard/',displayDashboardPage, name="dash-board"),
     path('nominee/',displayNominee, name="nominee"),
+    path('result/',displayNewResultPage, name="new-voting-result"),
     path('votingresult/',displayResultPage, name="voting-result"),
     
     

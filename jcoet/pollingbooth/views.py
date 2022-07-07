@@ -133,8 +133,13 @@ def displayNominee(request):
         data_dict = request.POST
         print(data_dict)
         print("----------")
-        nominee = data_dict['candidate_name']
-        name = data_dict['voter_name']    
+        nominee_id = data_dict['candidate_name']
+        name = data_dict['voter_name']
+
+        result = Result.objects.create(voter_name=name,candidate_id=int(nominee_id))
+        print("Check Result")
+        print(result.voter_name,result.candidate.nominee)
+
     
     nominee_details = Nominee.objects.all().filter(election=electionID)
     election_name = Election.objects.all().filter(id=electionID)
@@ -143,8 +148,30 @@ def displayNominee(request):
     
     return render(request,'nominee.html',context)
 
+
+def displayNewResultPage(request):
+    result_details = Result.objects.all()
+    print(result_details)
+    result = {}
+    for i in result_details:
+        print(i.voter_name,i.candidate.nominee,i.candidate.election.election_name)
+        #Handle blank dictionaries
+        if not i.candidate.election.election_name in result:
+            result[i.candidate.election.election_name] = {}
+        if not i.candidate.nominee in result[i.candidate.election.election_name]:
+            result[i.candidate.election.election_name][i.candidate.nominee] = 1
+        else:
+            result[i.candidate.election.election_name][i.candidate.nominee] += 1
+
+        print("--loop---")
+        print(result)
+    context = {"results":result}
+
+
+    return render(request,'new-voting-results.html',context)
 def displayResultPage(request):
     electionID = request.GET.get('election')
+    
     
     if request.method == "POST":
         data_dict = request.POST
