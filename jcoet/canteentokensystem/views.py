@@ -1,6 +1,7 @@
+from email import message
 from multiprocessing import context
 from django.shortcuts import redirect, render
-
+from datetime import datetime
 # Create your views here.
 from django.shortcuts import render
 from .models import *
@@ -25,6 +26,13 @@ def menu(request):
 
     context = {"items":menu_items}
     return render(request,'menu.html', context)
+
+def messages(request):
+    messages = FeedbackMessage.objects.order_by('-date').all()
+
+    context = {"messages":messages}
+    return render(request,'feedback_messages.html', context)
+
 
 def addItem(request):
     if request.method == "POST":
@@ -101,6 +109,12 @@ def feedback(request):
         print("GOT THE DATA")
         print(request.POST)
         data_dict = request.POST
-        print("Feedback ",data_dict['Feedback'])
-    
+
+        first_name = data_dict['firstname']
+        last_name = data_dict['lastname']
+        feedback = data_dict['feedback']
+
+        FeedbackMessage.objects.create(name=first_name+' '+last_name, message = feedback, date=datetime.now())
+
+
     return render (request,'feedback.html')
