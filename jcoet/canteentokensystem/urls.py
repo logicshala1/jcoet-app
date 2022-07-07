@@ -10,9 +10,6 @@ urlpatterns = [
     path('menu/',menu, name="menu"),
     path('add-item/',addItem,name="add-item"),
     path('canteen-admin/',adminCanteen,name="admin"),
-<<<<<<< HEAD
     path('feedback/',feedback,name="feedback"),
-=======
     path('main/',mainPage,name="main-page")
->>>>>>> 53ee6bffed93772d3f90534569837295eef93a46
 ]

@@ -21,6 +21,12 @@
       user-select: none;
     }
 
+    .menu {
+      margin-top: -6px;
+      margin-bottom: -6px;
+
+    }
+
     @media (min-width: 768px) {
       .bd-placeholder-img-lg {
         font-size: 3.5rem;
@@ -34,6 +40,34 @@
 </head>
 
 <body class="bg-light">
+  <div class="container">
+  </div>
+ 
+  <nav class="navbar navbar-expand-sm bg-primary navbar-dark">
+    <div class="container-fluid">
+      <ul class="navbar-nav">
+        <li class="nav-item px-3">
+          <a class="nav-link active" href="http://127.0.0.1:8000/polling/addcollege/">Add Colleges</a>
+        </li>
+        <li class="nav-item px-3">
+          <a class="nav-link active" href="http://127.0.0.1:8000/polling/addbranch/">Add Branch</a>
+        </li>
+        <li class="nav-item px-3">
+          <a class="nav-link active" href="http://127.0.0.1:8000/polling/addyear/">Add Year</a>
+        </li>
+        <li class="nav-item px-3">
+          <a class="nav-link active" href="http://127.0.0.1:8000/polling/addelection/">Add Election</a>
+        </li>
+        <li class="nav-item px-3">
+          <a class="nav-link active" href="http://127.0.0.1:8000/polling/addnominee/">Add Nominee</a>
+        </li>
+        
+        <li class="nav-item menu">
+          <a class="nav-link active" href="http://127.0.0.1:8000/polling/"><button type="button" class="btn btn-primary">LOGOUT</button></a>
+        </li>
+      </ul>
+    </div>
+  </nav>
 
   <div class="container">
     <main>
@@ -48,10 +82,10 @@
             <span class="text-primary">COLLEGE Details</span>
           </h4>
           <ul class="list-group mb-3">
-            {% for detail in departments %}
+            {% for detail in years %}
             <li class="list-group-item d-flex justify-content-between lh-sm">
               <div>
-                <h6 class="my-0">Branch: {{detail.branch}}</h6>
+                <h6 class="my-0">Year: {{detail.year}}</h6>
               </div>
               <span class="text-muted">College: {{detail.college.college_name}}</span>
             </li>
@@ -65,8 +99,8 @@
             {% csrf_token %}
             <div class="row g-3">
               <div class="col-sm-6">
-                <label for="dept" class="form-label">Branch</label>
-                <input name="branch" type="text" class="form-control" id="dept" placeholder="" value="">    
+                <label for="yr" class="form-label">Year</label>
+                <input name="year" type="text" class="form-control" id="yr" placeholder="" value="">    
               </div>
             </div>
 

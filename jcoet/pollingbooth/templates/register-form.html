@@ -124,7 +124,7 @@
           {% csrf_token %}
           <div class="container1">
 
-            <h1>Registration Form</h1>
+            <h3>Registration Form</h3>
 
             <hr>
             <label for="name"><b>Name</b></label>
@@ -167,12 +167,9 @@
             <label for="psw-repeat"><b>Conform Password</b></label>
             <input type="password" placeholder="Conform Password" name="conform_password" id="psw-repeat" required>
 
-            <div class="form-check mb-3">
-              <label class="form-check-label">
-                <input class="form-check-input" type="checkbox" name="remember"> Remember me </label>
-            </div>
+
             <hr>
-            <input type="button" class="btn btn-info registerbtn" value="Register" onclick=" relocate_home()">
+            <button type="submit" class="registerbtn">Register</button>
           </div>
 
           <div class="container signin">
@@ -183,13 +180,7 @@
       </div>
     </div>
   </div>
-  <script>
-    function relocate_home()
-    {
-         location.href = "http://127.0.0.1:8000/polling/dashboard/";
-    } 
-    </script>
-
+ 
   <script src="{% static 'bootstrap.bundle.min.js' %}"></script>
 </body>
 

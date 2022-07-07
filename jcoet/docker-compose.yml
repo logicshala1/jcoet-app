@@ -1,0 +1,38 @@
+version: "3"
+services:
+  app:
+    build: .
+    volumes:
+      - .:/jcoet
+      - static:/static/
+      - logs:/logs/
+    env_file:
+      - .env
+#    ports:
+#      - 9001:8000
+    image: jcoet
+    container_name: JCOET_container
+    command: python manage.py runserver 0.0.0.0:8000
+    #depends_on:
+    #  - db
+
+  nginx:
+    build: ./nginx
+    volumes:
+      - .:/jcoet
+      - static:/static/
+
+    ports:
+      - "9002:80"
+    depends_on:
+      - app
+
+volumes:
+  static:
+  logs:  
+
+
+
+
+
+

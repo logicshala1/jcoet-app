@@ -137,11 +137,11 @@
             <div class="form-check mb-3">
               <label class="form-check-label float-start">
                 <input class="form-check-input" type="checkbox" name="remember"> Remember me </label>
-                <a class="float-end" href="http://127.0.0.1:8000/polling/forgotpassword/">Forgot Password?</a>
+                
             </div>
             <hr>
            
-            <input type="button" class="btn btn-info registerbtn" value="Login" onclick=" relocate_home()">
+            <button type="submit" class="registerbtn">Login</button>
 
 
           </div>
@@ -154,12 +154,7 @@
       </div>
     </div>
   </div>
-  <script>
-    function relocate_home()
-    {
-         location.href = "http://127.0.0.1:8000/polling/dashboard/";
-    } 
-    </script>
+  
 
   <script src="{% static 'bootstrap.bundle.min.js' %}"></script>
 </body>
