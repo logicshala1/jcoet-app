@@ -1,0 +1,64 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Result</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="{% static 'bootstrap.min.css' %}" rel="stylesheet">
+
+  <style type="text/css">
+    hr.style-1 {    
+      padding: 0;
+      border: none;
+      border-top: medium double #333;
+      color: hotpink;   
+      text-align: center;
+    }
+
+    hr.style-1:after {
+      content: "JCOET YAVATMAL ELECTION 2022 RESULT";
+      display: inline-block;
+      position: relative;
+      top: -0.7em;
+      font-size: 1.4em;
+      padding: 0 0.25em;
+      background: white;
+    }
+
+
+    body {
+      background: #f7ec86;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container mt-3">
+    <hr class="style-1"><br>
+    <!-- Blue -->
+    <h3>Candidate Name: A</h3>
+    <div class="progress">
+      <div class="progress-bar" style="width:10%"></div>
+    </div><br><br>
+    <h3>Candidate Name: B</h3>
+    <!-- Green -->
+    <div class="progress">
+      <div class="progress-bar bg-success" style="width:20%"></div>
+    </div><br><br>
+
+
+    <!-- Orange -->
+    <h3>Candidate Name: C</h3>
+    <div class="progress">
+      <div class="progress-bar bg-warning" style="width:40%"></div>
+    </div><br><br>
+
+  </div>
+  <script src="{% static 'bootstrap.bundle.min.js' %}"></script>
+
+</body>
+
+</html>

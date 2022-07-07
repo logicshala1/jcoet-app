@@ -1,0 +1,105 @@
+
+
+{% load static %}
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+  <meta name="generator" content="Hugo 0.84.0">
+  <title></title>
+  <!-- Bootstrap core CSS -->
+  <link href="{% static 'bootstrap.min.css' %}" rel="stylesheet">
+
+  <style>
+    .bd-placeholder-img {
+      font-size: 1.125rem;
+      text-anchor: middle;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      user-select: none;
+    }
+
+    @media (min-width: 768px) {
+      .bd-placeholder-img-lg {
+        font-size: 3.5rem;
+      }
+    }
+  </style>
+
+
+  <!-- Custom styles for this template -->
+  <link href="{% static 'form-validation.css' %}" rel="stylesheet">
+</head>
+
+<body class="bg-light">
+
+  <div class="container">
+    <main>
+      <div class="py-5 text-center">
+        <h2>Add Voting Update </h2>
+
+      </div>
+
+      <div class="row g-5">
+        <div class="col-md-5 col-lg-4 order-md-last">
+          <h4 class="d-flex justify-content-between align-items-center mb-3">
+            <span class="text-primary">Voting Details</span>
+          </h4>
+          <ul class="list-group mb-3">
+            {% for detail in positions %}
+            <li class="list-group-item d-flex justify-content-between lh-sm">
+              <div>
+                <h6 class="my-0">Candidate Position: {{detail.election_post}}</h6>
+              </div>
+              <span class="text-muted">Election Name: {{detail.election.election_name}}</span>
+            </li>
+            {% endfor %}
+          </ul>
+
+        </div>
+        <div class="col-md-7 col-lg-8">
+          <h4 class="mb-3">Voting Details</h4>
+          <form method="post">
+            {% csrf_token %}
+            <div class="row g-3">
+              <div class="col-sm-6">
+                <label for="post" class="form-label">Candidate Positions</label>
+                <input name="election_post" type="text" class="form-control" id="post" placeholder="" value="">    
+              </div>
+            </div>
+            <div class="row g-3 mt-4">
+
+                <div class="col-sm-6">
+                  <label for="vote" class="form-label">Election Level</label>
+                  <select name="election" class="form-select" id="">
+                    <option selected disabled> --select-- </option>
+                    {% for election in elections %}
+                    <option value="{{election.id}}">{{election.election_name}}</option>
+                    {% endfor %}
+                  </select>
+                </div>
+              </div>
+             
+
+             
+            <button class="w-20 btn btn-primary btn-lg mt-5" type="submit">Submit</button>
+          </form>
+        </div>
+      </div>
+    </main>
+
+  </div>
+
+ 
+
+
+  <script src="{% static 'bootstrap.bundle.min.js' %}"></script>
+  <script src="{% static 'form-validation.js' %}"></script>
+
+</body>
+
+</html>

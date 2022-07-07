@@ -1,0 +1,11 @@
+jcoet-app
+    -jcoetenv/(virtual environment)
+        
+
+    -jcoet-app/
+        -jcoet/
+      
+        -requirements.txt
+        -readme
+  
+    workspace-file

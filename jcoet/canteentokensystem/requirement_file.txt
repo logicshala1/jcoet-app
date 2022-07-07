@@ -1,0 +1,15 @@
+1. User table for orders: 
+    username, date of birth, college ID number, password
+
+2. Login and registration done!
+
+
+3. View items from the menu
+    Menu table: Food item name, rates
+
+4. Add new items:
+    owner-page.html
+    Menu table: Food item name, rates
+
+
+5. Place order:
