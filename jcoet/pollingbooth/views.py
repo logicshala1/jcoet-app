@@ -131,8 +131,10 @@ def displayNominee(request):
     
     if request.method == "POST":
         data_dict = request.POST
-        nominee = data_dict['nominee']
-        position = data_dict['position']    
+        print(data_dict)
+        print("----------")
+        nominee = data_dict['candidate_name']
+        name = data_dict['voter_name']    
     
     nominee_details = Nominee.objects.all().filter(election=electionID)
     election_name = Election.objects.all().filter(id=electionID)

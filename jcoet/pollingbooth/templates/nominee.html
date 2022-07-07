@@ -114,10 +114,19 @@ background: white;
             <div class="row">
             	<div class="col-md-3">
             	</div>
+              <form method="post">
+                {% csrf_token %}
+
               <div class="col-md-6">
-                <button type="button" class="btn btn-success btn-sm btn-block"><i class="fa fa-angle-double-down"></i> VOTE HERE <i class="fa fa-angle-double-down"></i></button>
-                <input type="radio" id="voteR" name="{{nominee}}" value="{{nominee}}">
+                <label >Voter Name</label>
+               <input type="text" id="voter_name" name="voter_name">
+               
+                <input type="hidden" id="custId" name="candidate_name" value="{{ nominee.id }}">
+                <button type="submit">Vote</button>
               </div>
+              
+            
+              </form>
               
              
             </div>
